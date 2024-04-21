@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class ToolKit {
     private static final String TRANSLATION_API_URL = "https://translate-api-0unn.onrender.com/getTranslation/";
-    private static final String SEPARATOR = ",";
+    private static final String SEPARATOR = "|";
 
 
     public static String getTranslation(String text, String dest) {
@@ -64,6 +64,22 @@ public class ToolKit {
 
 
     public static void main(String[] args) {
-        System.out.println(getTranslation("Olá", "en"));
+        if (args.length > 0) {
+
+            if ("-t".equals(args[0])) {
+                if (args.length >= 3) {
+                    String dest = args[1];
+                    String text = args[2];
+                    System.out.println(getTranslation(text, dest));
+                } else {
+                    System.out.println("There are no arguments for the translation.");
+                }
+            }
+
+            
+
+        } else {
+            System.out.println("No arguments were passed.");
+        }
     }
 }

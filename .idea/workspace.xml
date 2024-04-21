@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc831055-c052-4875-9423-a60659fb509d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ToolKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Translate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/utilityMethods.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/installer/tdk.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToolKit.class" beforeDir="false" afterPath="$PROJECT_DIR$/ToolKit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToolKit.java" beforeDir="false" afterPath="$PROJECT_DIR$/ToolKit.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,11 @@
     &quot;last_opened_file_path&quot;: &quot;/home/george/Code/Projetos/ToolKit-Dev&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="ToolKit-Dev" />
