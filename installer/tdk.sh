@@ -15,5 +15,5 @@ if [ -n "$3" ]; then
 fi
 
 if [ "${#args[@]}" -gt 0 ]; then
-    java ToolKit "${args[@]}"
+    java -classpath "$FILE_TDK" ToolKit "${args[@]}"
 fi

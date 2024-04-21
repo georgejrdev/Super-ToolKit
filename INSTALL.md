@@ -15,6 +15,7 @@ Move them to a folder of your choice
 You can do this by opening the configuration file in your terminal and putting at the end:
 
     export PATH="/path/to/your/folder:$PATH"
+    export FILE_TDK="/path/to/your/folder"
     alias tdk="/path/to/your/folder/tdk.sh"
   
 After that, run in your terminal, example:
