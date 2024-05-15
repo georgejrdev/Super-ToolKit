@@ -15,8 +15,8 @@ Move them to a folder of your choice
 You can do this by opening the configuration file in your terminal and putting at the end:
 
     export PATH="/path/to/your/folder:$PATH"
-    export FILE_TDK="/path/to/your/folder"
-    alias tdk="/path/to/your/folder/tdk.sh"
+    export FILE_TKD="/path/to/your/folder/ToolKit.jar"
+    alias tkd="/path/to/your/folder/tkd.sh"
   
 After that, run in your terminal, example:
 
@@ -29,13 +29,14 @@ After that, run in your terminal, example:
 Finally, use the following command in your terminal to give permission:
 
 
-    chmod +x /path/to/your/folder/tdk.sh
+    chmod +x /path/to/your/folder/tkd.sh
+    chmod +x /path/to/your/folder/ToolKit.jar
 
 ## Running
 
 To execute, use the command with the following syntax:
 
-    tdk -t "text" pt
+    tkd -t "text" pt
 
 -t : Call the translation function
 
