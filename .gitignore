@@ -1,3 +1,5 @@
 /.idea
 /.vscode
 /code/target
+/installer/windows
+/installer/linux

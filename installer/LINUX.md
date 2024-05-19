@@ -2,6 +2,10 @@
 
 ## Download the files
 
+[Download File](https://github.com/georgejrdev/ToolKit-Development/raw/main/installer/linux_0.0.2.zip)
+
+## Extract the files
+
 ## Run the installer
 
 Run install_tkd.sh as administrator
