@@ -1,6 +1,7 @@
 package com.georgejrdev.core;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -34,6 +35,8 @@ public class Translate implements TranslateInterface {
             connection.disconnect();
 
             return response.toString();
+        } catch (FileNotFoundException e) {
+            return e.toString();
         } catch (Exception e){
             return e.toString();
         }
