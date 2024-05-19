@@ -6,7 +6,7 @@
   
   ![License](https://img.shields.io/github/license/NoxusJr/ToolKit-Development.svg)
   ![Version](https://img.shields.io/badge/version-1.0.0-53918E.svg)
-  ![Windows](https://img.shields.io/badge/made%20for-linux-AD6845.svg)
+  ![Windows](https://img.shields.io/badge/made%20for-linux_/_windows-AD6845.svg)
 
 </div>
 
@@ -17,4 +17,6 @@
 
 To install, follow the instructions at:
 
-[How to install](./INSTALL.md)
+[LINUX](./installer/LINUX.md)
+
+[WINDOWS](./installer/WINDOWS.MD)
