@@ -5,7 +5,7 @@
 <div id="badges" align="center">
   
   ![License](https://img.shields.io/github/license/NoxusJr/ToolKit-Development.svg)
-  ![Version](https://img.shields.io/badge/version-0.0.2-53918E.svg)
+  ![Version](https://img.shields.io/badge/version-1.0.0-53918E.svg)
   ![Windows](https://img.shields.io/badge/made%20for-linux_/_windows-AD6845.svg)
 
 </div>

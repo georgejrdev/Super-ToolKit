@@ -2,7 +2,7 @@
 
 ## Download the files
 
-[Download File](https://github.com/georgejrdev/ToolKit-Development/raw/main/installer/windows_0.0.2.zip)
+[Download File](https://github.com/georgejrdev/ToolKit-Development/raw/main/installer/windows_1.0.0.zip)
 
 ## Extract the files
 
