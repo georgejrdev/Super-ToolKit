@@ -18,9 +18,9 @@ import com.georgejrdev.core.interfaces.ManipulateJsonFileInterface;
 
 public class ManipulateJsonFile implements ManipulateJsonFileInterface {
     
-    String path;
-    boolean fileExist;
-    List<Map<String, Object>> content;
+    private String path;
+    private boolean fileExist;
+    private List<Map<String, Object>> content;
 
     public ManipulateJsonFile(String path) {
         this.path = path;
