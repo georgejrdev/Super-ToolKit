@@ -24,6 +24,11 @@ public class Help implements HelpInterface{
 
     @Override
     public void showCorrectSintax(String command){
-        System.out.println("Syntax Error: the correct syntax is -> " + COMMAND_SYNTAX.get(command));
+        System.out.println("Syntax Error: the correct syntax is -> " + getCommandSyntax(command));
+    }
+
+    @Override
+    public String getCommandSyntax(String command){
+        return COMMAND_SYNTAX.get(command);
     }
 }

@@ -1,7 +1,7 @@
 package com.georgejrdev;
 
 import com.georgejrdev.core.Help;
-import com.georgejrdev.core.Translate;;
+import com.georgejrdev.core.Translate;
 
 
 public class Main {
