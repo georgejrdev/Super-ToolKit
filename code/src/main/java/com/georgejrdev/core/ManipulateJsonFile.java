@@ -87,12 +87,27 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         }
 
         if (found) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            try (FileWriter writer = new FileWriter(this.path)) {
-                gson.toJson(currentContent, writer);
-            } catch (IOException e) {
-                e.printStackTrace();
+            writeContentToFile(currentContent);
+        } else {
+            System.out.println("Item with ID " + id + " not found.");
+        }
+    }
+
+    @Override
+    public void deleteItemInJsonFile(int id) {
+        List<Map<String, Object>> currentContent = getContentJsonFile();
+
+        boolean found = false;
+        for (Map<String, Object> item : currentContent) {
+            if (item.get("id") instanceof Integer && (Integer) item.get("id") == id) {
+                currentContent.remove(item);
+                found = true;
+                break;
             }
+        }
+
+        if (found) {
+            writeContentToFile(currentContent);
         } else {
             System.out.println("Item with ID " + id + " not found.");
         }
@@ -123,5 +138,14 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         }
 
         return this.content;
+    }
+
+    private void writeContentToFile(List<Map<String, Object>> content) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try (FileWriter writer = new FileWriter(this.path)) {
+            gson.toJson(content, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
