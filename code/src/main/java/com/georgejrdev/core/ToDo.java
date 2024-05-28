@@ -15,25 +15,25 @@ public class ToDo implements ToDoInterface{
 
     public ToDo(){
         getCorrectPath();
-        mJsonFile = new ManipulateJsonFile(this.pathSave);
+        this.mJsonFile = new ManipulateJsonFile(this.pathSave);
     }
 
 
     @Override
     public void createNewTask(String content){
-        mJsonFile.addItemInJsonFile(content);
+        this.mJsonFile.addItemInJsonFile(content);
     }
 
     @Override
     public void checkTask(int id, boolean newState){
-        mJsonFile.updateItemInJsonFile(id, newState);
+        this.mJsonFile.updateItemInJsonFile(id, newState);
     }
 
     @Override
     public void showTasks(){
-        mJsonFile.createNewJsonFile();
+        this.mJsonFile.createNewJsonFile();
         
-        List<Map<String,Object>> content = orderTasks(mJsonFile.getContentJsonFile());
+        List<Map<String,Object>> content = orderTasks(this.mJsonFile.getContentJsonFile());
 
         for(Map<String,Object> item : content) {
             int itemId = (int) item.get("id");
@@ -46,6 +46,11 @@ public class ToDo implements ToDoInterface{
                 System.out.printf("ID: %d [x] - %s%n",itemId,itemContent);
             }
         }
+    }
+
+    @Override
+    public void deleteTask(int id){
+        this.mJsonFile.deleteItemInJsonFile(id);
     }
 
     private void getCorrectPath(){
@@ -65,7 +70,7 @@ public class ToDo implements ToDoInterface{
 
         for(Map<String,Object> item : content) {
             boolean state = (boolean) item.get("state");
-            
+
             if (state == false){
                 orderContent.add(item);
 
