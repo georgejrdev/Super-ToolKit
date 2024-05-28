@@ -45,4 +45,11 @@ public class TestManipulateJsonFile {
         assertNotNull(content);
         assertFalse(content.isEmpty());
     }
+
+    @Test
+    public void testDeleteItemInJsonFile(){
+        List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
+        int range = ((content.size()) -1);
+        mJsonFile.deleteItemInJsonFile(range);
+    }
 }
