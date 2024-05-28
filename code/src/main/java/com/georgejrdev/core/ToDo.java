@@ -30,6 +30,8 @@ public class ToDo implements ToDoInterface{
 
     @Override
     public void showTasks(){
+        mJsonFile.createNewJsonFile();
+        
         List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
         for(Map<String,Object> item : content) {
             int itemId = (int) item.get("id");
