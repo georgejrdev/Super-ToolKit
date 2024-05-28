@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         
         Help help = new Help();
-
+        
         if (args.length == 0){
             System.out.println("Parameters Required");
             help.showCommands();

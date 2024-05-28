@@ -2,6 +2,7 @@ package com.georgejrdev.core;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 import com.georgejrdev.core.interfaces.ToDoInterface;;
 
@@ -32,7 +33,8 @@ public class ToDo implements ToDoInterface{
     public void showTasks(){
         mJsonFile.createNewJsonFile();
         
-        List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
+        List<Map<String,Object>> content = orderTasks(mJsonFile.getContentJsonFile());
+
         for(Map<String,Object> item : content) {
             int itemId = (int) item.get("id");
             boolean itemState = (boolean) item.get("state");
@@ -57,4 +59,21 @@ public class ToDo implements ToDoInterface{
             this.pathSave = appData + "\\toolkit-dev\\save\\ToDoSave.json";
         }
     } 
+
+    private List<Map<String,Object>> orderTasks(List<Map<String,Object>> content){
+        List<Map<String,Object>> orderContent = new ArrayList<>();
+
+        for(Map<String,Object> item : content) {
+            boolean state = (boolean) item.get("state");
+            
+            if (state == false){
+                orderContent.add(item);
+
+            } else {
+                orderContent.add(0,item);
+            }
+        }
+
+        return orderContent;
+    }
 }
