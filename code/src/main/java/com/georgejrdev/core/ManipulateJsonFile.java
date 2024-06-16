@@ -58,8 +58,16 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
+        int maxId = 0;
+        for (Map<String, Object> item : currentContent) { 
+            int currentId = (int) item.get("id"); 
+            if (currentId > maxId) {
+                maxId = currentId; 
+            } 
+        } 
+
         Map<String, Object> newItem = new HashMap<>();
-        newItem.put("id", currentContent.size());
+        newItem.put("id", maxId + 1);
         newItem.put("content", content);
         newItem.put("state", true);
 

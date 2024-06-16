@@ -16,6 +16,7 @@ public class Help implements HelpInterface{
         put("add","tkd -td add content");
         put("check","tkd -td check numberID");
         put("uncheck","tkd -td uncheck numberID");
+        put("delete","tkd -td delete numberID");
     }};
 
 
@@ -30,8 +31,9 @@ public class Help implements HelpInterface{
         System.out.println("tkd -td -> ToDo List");
         System.out.println("tkd -td show-> Show all Tasks");
         System.out.println("tkd -td add 'content' -> New Task in ToDo List");
-        System.out.println("tkd -td check id -> Mark the task as completed");
-        System.out.println("tkd -td unckeck id -> Unmark the task as completed");
+        System.out.println("tkd -td check id -> Mark the Task as completed");
+        System.out.println("tkd -td unckeck id -> Unmark the Task as completed");
+        System.out.println("tkd -td delete id -> Delete Task");
     }
 
     @Override

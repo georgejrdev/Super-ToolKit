@@ -93,6 +93,20 @@ public class Main {
                             help.showCorrectSintax("uncheck");
                         }
                         break;
+
+                    case "delete":
+                        try{
+                            int idDelete = Integer.parseInt(args[2]);
+                            td.deleteTask(idDelete);
+                            td.showTasks();
+
+                        } catch (NumberFormatException e){
+                            help.showCorrectSintax(args[1]);
+
+                        } catch (Exception e) {
+                            help.showCorrectSintax("delete");
+                        }
+                        break;
                         
                     default:
                         System.out.println(args[1]+" does not correspond to any function");
