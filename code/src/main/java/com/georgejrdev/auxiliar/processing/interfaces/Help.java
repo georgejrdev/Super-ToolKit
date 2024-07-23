@@ -1,7 +1,7 @@
-package com.georgejrdev.core.interfaces;
+package com.georgejrdev.auxiliar.processing.interfaces;
 
 
-public interface HelpInterface {
+public interface Help {
     void showCommands();
     void showCorrectSintax(String command);
     String getCommandSyntax(String command);

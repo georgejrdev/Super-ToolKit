@@ -1,13 +1,13 @@
-package com.georgejrdev.core;
+package com.georgejrdev.auxiliar.processing;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.georgejrdev.core.interfaces.HelpInterface;
+import com.georgejrdev.auxiliar.processing.interfaces.Help;
 
 
-public class Help implements HelpInterface{
-    
+public class HelpImpl implements Help{
+
     final Map<String,String> COMMAND_SYNTAX = new HashMap<String,String>() {{
         put("-h","tkd -h");
         put("-t","tkd -t 'Text' pt");
@@ -36,12 +36,14 @@ public class Help implements HelpInterface{
         System.out.println("tkd -td delete id -> Delete Task");
     }
 
+
     @Override
     public void showCorrectSintax(String command){
         System.out.println("Syntax Error: the correct syntax is -> " + getCommandSyntax(command));
         System.out.println("Use tkd -h to find out more");
     }
 
+    
     @Override
     public String getCommandSyntax(String command){
         return COMMAND_SYNTAX.get(command);

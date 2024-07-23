@@ -1,4 +1,4 @@
-package com.georgejrdev.core;
+package com.georgejrdev.auxiliar.processing;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -13,16 +13,17 @@ import java.util.List;
 import java.util.Map;
 import java.io.File;
 
-import com.georgejrdev.core.interfaces.ManipulateJsonFileInterface;
+import com.georgejrdev.auxiliar.processing.interfaces.ManipulateJsonFile;
 
 
-public class ManipulateJsonFile implements ManipulateJsonFileInterface {
+public class ManipulateJsonFileImpl implements ManipulateJsonFile{
     
     private String path;
     private boolean fileExist;
     private List<Map<String, Object>> content;
 
-    public ManipulateJsonFile(String path) {
+
+    public ManipulateJsonFileImpl(String path) {
         this.path = path;
         this.fileExist = false;
         this.content = new ArrayList<>();
@@ -50,6 +51,7 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         }
     }
 
+
     @Override
     public void addItemInJsonFile(String content) {
         if (!this.fileExist) {
@@ -61,6 +63,7 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         int maxId = 0;
         for (Map<String, Object> item : currentContent) { 
             int currentId = (int) item.get("id"); 
+
             if (currentId > maxId) {
                 maxId = currentId; 
             } 
@@ -74,18 +77,22 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         currentContent.add(newItem);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         try (FileWriter writer = new FileWriter(this.path)) {
             gson.toJson(currentContent, writer);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
     @Override
     public void updateItemInJsonFile(int id, boolean newStatus) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
         boolean found = false;
+
         for (Map<String, Object> item : currentContent) {
             if (item.get("id") instanceof Integer && (Integer) item.get("id") == id) {
                 item.put("state", newStatus);
@@ -101,11 +108,13 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         }
     }
 
+
     @Override
     public void deleteItemInJsonFile(int id) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
         boolean found = false;
+
         for (Map<String, Object> item : currentContent) {
             if (item.get("id") instanceof Integer && (Integer) item.get("id") == id) {
                 currentContent.remove(item);
@@ -121,6 +130,7 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         }
     }
 
+
     @Override
     public List<Map<String, Object>> getContentJsonFile() {
         Gson gson = new Gson();
@@ -132,11 +142,13 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
             if (this.content != null) {
                 for (Map<String, Object> item : this.content) {
                     Object idObj = item.get("id");
+                    
                     if (idObj instanceof Double) {
                         item.put("id", ((Double) idObj).intValue());
                     }
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -148,10 +160,13 @@ public class ManipulateJsonFile implements ManipulateJsonFileInterface {
         return this.content;
     }
 
+
     private void writeContentToFile(List<Map<String, Object>> content) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
         try (FileWriter writer = new FileWriter(this.path)) {
             gson.toJson(content, writer);
+
         } catch (IOException e) {
             e.printStackTrace();
         }

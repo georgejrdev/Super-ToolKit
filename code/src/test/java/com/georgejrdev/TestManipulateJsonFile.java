@@ -7,34 +7,40 @@ import static org.junit.Assert.assertNotNull;
 import java.util.List;
 import java.util.Map;
 
-import com.georgejrdev.core.ManipulateJsonFile;
+import com.georgejrdev.auxiliar.processing.interfaces.ManipulateJsonFile;
+import com.georgejrdev.auxiliar.processing.ManipulateJsonFileImpl;
 
 
 public class TestManipulateJsonFile {
 
     private ManipulateJsonFile mJsonFile;
 
+    
     @Before
     public void setUp(){
-        mJsonFile = new ManipulateJsonFile("./test.json");
+        mJsonFile = new ManipulateJsonFileImpl("./test.json");
         mJsonFile.createNewJsonFile();
     }
+    
 
     @Test
     public void testCreateNewJsonFile(){
         mJsonFile.createNewJsonFile();
     }
 
+
     @Test
     public void testAddItemInJsonFile(){
         mJsonFile.addItemInJsonFile("Hey");
     }
 
+    
     @Test
     public void testUpdateItemInJsonFile(){
         mJsonFile.addItemInJsonFile("Hi");
         mJsonFile.updateItemInJsonFile(0, false);
     }
+
 
     @Test
     public void testGetContentJsonFile(){
@@ -45,6 +51,7 @@ public class TestManipulateJsonFile {
         assertNotNull(content);
         assertFalse(content.isEmpty());
     }
+
 
     @Test
     public void testDeleteItemInJsonFile(){

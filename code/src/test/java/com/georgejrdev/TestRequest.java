@@ -4,17 +4,19 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.georgejrdev.core.Request;
-
+import com.georgejrdev.auxiliar.processing.interfaces.Request;
+import com.georgejrdev.auxiliar.processing.RequestImpl;
 
 public class TestRequest {
 
     private Request request;
 
+    
     @Before
     public void setUp(){
-        request = new Request();
+        request = new RequestImpl();
     }
+
 
     @Test
     public void testRequestValidUrl(){

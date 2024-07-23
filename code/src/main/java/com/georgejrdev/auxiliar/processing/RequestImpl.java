@@ -1,4 +1,4 @@
-package com.georgejrdev.core;
+package com.georgejrdev.auxiliar.processing;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -6,11 +6,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import com.georgejrdev.core.interfaces.RequestInterface;;
+import com.georgejrdev.auxiliar.processing.interfaces.Request;
 
 
-public class Request implements RequestInterface{
-    
+public class RequestImpl implements Request{
     public String getResultRequest(String url, String method){
 
         try{

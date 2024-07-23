@@ -1,10 +1,10 @@
-package com.georgejrdev.core.interfaces;
+package com.georgejrdev.auxiliar.processing.interfaces;
 
 import java.util.List;
 import java.util.Map;
 
 
-public interface ManipulateJsonFileInterface {
+public interface ManipulateJsonFile {
     void createNewJsonFile();
     void addItemInJsonFile(String content); 
     void updateItemInJsonFile(int id, boolean newStatus);

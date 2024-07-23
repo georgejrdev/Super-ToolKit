@@ -1,21 +1,23 @@
-package com.georgejrdev.core;
+package com.georgejrdev.auxiliar.processing;
 
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 
-import com.georgejrdev.core.interfaces.ToDoInterface;;
+import com.georgejrdev.auxiliar.processing.interfaces.ManipulateJsonFile;
+import com.georgejrdev.auxiliar.processing.interfaces.ToDo;
 
 
-public class ToDo implements ToDoInterface{
-
+public class ToDoImpl implements ToDo{
+    
     private String pathSave;
     private String os;
     private ManipulateJsonFile mJsonFile;
 
-    public ToDo(){
+
+    public ToDoImpl(){
         getCorrectPath();
-        this.mJsonFile = new ManipulateJsonFile(this.pathSave);
+        this.mJsonFile = new ManipulateJsonFileImpl(getPathSave());
     }
 
 
@@ -24,10 +26,12 @@ public class ToDo implements ToDoInterface{
         this.mJsonFile.addItemInJsonFile(content);
     }
 
+
     @Override
     public void checkTask(int id, boolean newState){
         this.mJsonFile.updateItemInJsonFile(id, newState);
     }
+
 
     @Override
     public void showTasks(){
@@ -48,22 +52,25 @@ public class ToDo implements ToDoInterface{
         }
     }
 
+
     @Override
     public void deleteTask(int id){
         this.mJsonFile.deleteItemInJsonFile(id);
     }
 
-    private void getCorrectPath(){
-        this.os = System.getProperty("os.name");
 
-        if (this.os != null && this.os.toLowerCase().contains("linux")){
-                this.pathSave = System.getenv("HOME") + "/ToolKit-dev/save/ToDoSave.json";
+    private void getCorrectPath(){
+        setOs(System.getProperty("os.name"));
+
+        if (getOs() != null && getOs().toLowerCase().contains("linux")){
+                setPathSave(System.getenv("HOME") + "/ToolKit-dev/save/ToDoSave.json");;
 
         } else {
             String appData = System.getenv("APPDATA");
-            this.pathSave = appData + "\\toolkit-dev\\save\\ToDoSave.json";
+            setPathSave(appData + "\\toolkit-dev\\save\\ToDoSave.json");
         }
     } 
+
 
     private List<Map<String,Object>> orderTasks(List<Map<String,Object>> content){
         List<Map<String,Object>> orderContent = new ArrayList<>();
@@ -80,5 +87,25 @@ public class ToDo implements ToDoInterface{
         }
 
         return orderContent;
+    }
+
+
+    private String getPathSave(){
+        return this.pathSave;
+    }
+
+
+    private void setPathSave(String pathSave){
+        this.pathSave = pathSave;
+    }
+
+
+    private String getOs(){
+        return this.os;
+    }
+
+
+    private void setOs(String os){
+        this.os = os;
     }
 }
