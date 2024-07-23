@@ -5,7 +5,7 @@
 
     <groupId>com.georgejrdev</groupId>
     <artifactId>toolkit-dev</artifactId>
-    <version>1.0.1</version>
+    <version>2.0.0</version>
 
     <build>
         <plugins>
@@ -22,7 +22,6 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- Adicione o plugin Maven Assembly -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
