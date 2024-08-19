@@ -1,6 +1,3 @@
 /.idea
 /.vscode
-/code/target
-/installer/windows
-/installer/linux
-/code/test.json
+/target
