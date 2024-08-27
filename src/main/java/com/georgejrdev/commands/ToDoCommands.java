@@ -43,8 +43,8 @@ public class ToDoCommands implements Commands{
             return;
         }
 
-        final String OPTION = args[1];
-        final String PARAMETER = args[2];
+        //final String OPTION = args[1];
+        //final String PARAMETER = args[2];
 
         // Logic
     }
