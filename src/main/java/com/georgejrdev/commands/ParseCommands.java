@@ -22,6 +22,9 @@ public class ParseCommands implements Commands{
     private final int WEB_SOCKET_PORT = 8081;
     private final Parser parser;
     private final ManipulateFile manipulateFile;
+    private String srcFilePath; 
+    private String destFilePath;
+    private String directoryPath;
 
     public ParseCommands(Helper helper){
         this.helper = helper;
@@ -61,28 +64,46 @@ public class ParseCommands implements Commands{
         }
 
         final String OPTION = (args.length == 3) ? args[1] : null;
-        final String FILE_TO_WATCH = args[args.length - 1];
 
-        String fileToUpdate = getPathFileTopUpdate(FILE_TO_WATCH);
+        this.srcFilePath = args[args.length - 1];
+        this.directoryPath = getDirectory();
         
-        if (!manipulateFile.fileExist(fileToUpdate+"/index.html")){
-            manipulateFile.createFile(fileToUpdate, "index.html", "vai se foder");
+        String htmlFile = "index.html";
+        this.destFilePath = directoryPath + htmlFile;
+        
+        if (!manipulateFile.fileExist(this.destFilePath)){
+            manipulateFile.createFile(this.directoryPath, htmlFile, "<h1>Init Reload</h1> \n <p>update the file to load its content</p> \n <script> document.addEventListener('DOMContentLoaded', (event) => { var ws = new WebSocket('ws://localhost:8081/reload'); ws.onmessage = function(event) { if (event.data === 'reload') { window.location.reload(); } }; }); </script>");
         }
-        
+
         if (OPTION == null){
-            String content = parser.parse(FILE_TO_WATCH);
-            manipulateFile.writeFile(fileToUpdate+"/index.html", content);
-            return;
+            parseContent();
+        } else {
+            activeHotReload();
         }
 
-        // HotReload hotReload = new HotReload(FILE_TO_WATCH, FILE_TO_UPDATE, HTTP_PORT, WEB_SOCKET_PORT, parser);
-
+        System.out.println("VAI SE FODER -------------------------------------------------------------------");
     }
 
 
-    private String getPathFileTopUpdate(String path) {
-        Path filePath = Paths.get(path);
-        Path directory = filePath.getParent();    
-        return directory.toString();
+    private void activeHotReload(){
+        MarkdownParser parseMarkdown = new MarkdownParser();
+        HotReload hotReload = new HotReload(this.srcFilePath,this.destFilePath,HTTP_PORT,WEB_SOCKET_PORT,parseMarkdown);
+        hotReload.start();
+    }
+
+
+    private void parseContent(){
+        String htmlContent = new MarkdownParser().parse(this.srcFilePath);
+        this.manipulateFile.writeFile(this.destFilePath, htmlContent);
+    }
+
+
+    private String getDirectory(){
+        int lastSeparatorIndex = this.srcFilePath.lastIndexOf('/');
+        
+        if (lastSeparatorIndex == -1) {
+            return "";
+        }
+        return this.srcFilePath.substring(0, lastSeparatorIndex + 1);    
     }
 }
