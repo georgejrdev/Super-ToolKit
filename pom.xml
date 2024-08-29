@@ -17,7 +17,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.georgejrdev.Main</mainClass>
+                            <mainClass>com.georgejrdev.SuperToolKit</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -32,7 +32,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.georgejrdev.Main</mainClass>
+                            <mainClass>com.georgejrdev.SuperToolKit</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -46,7 +46,7 @@
                         <configuration>
                             <archive>
                                 <manifest>
-                                    <mainClass>com.georgejrdev.Main</mainClass>
+                                    <mainClass>com.georgejrdev.SuperToolKit</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
@@ -75,7 +75,7 @@
         <dependency>
             <groupId>com.georgejrdev</groupId>
             <artifactId>lib-utils</artifactId>
-            <version>1.0.3</version>
+            <version>1.1.2</version>
         </dependency>
 
         <dependency>

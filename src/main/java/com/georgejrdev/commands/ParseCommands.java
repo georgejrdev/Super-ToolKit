@@ -36,7 +36,7 @@ public class ParseCommands implements Commands{
             helper.listCommands(args[0]);
             return;
         }
-
+        
         catch (InvalidOptionCommand e){
             helper.invalidOption(args[0], args[1]);
             return;

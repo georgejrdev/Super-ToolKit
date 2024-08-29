@@ -1,41 +1,41 @@
 package com.georgejrdev.utils.parser;
 
-import com.georgejrdev.auxiliar.file.ManipulateFile;
-import com.georgejrdev.auxiliar.reload.Parser;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.io.IOException;
 
+import com.georgejrdev.lib.reload.Parser;
 
-public class MarkdownParser implements Parser{
+public class MarkdownParser implements Parser {
 
-    private int webSocketPort;
-    private ManipulateFile manipulateFile;
+    private Path srcPathFile;
+    private Path destPathFile;
 
-    public MarkdownParser(int webSocketPort) {
-        this.webSocketPort = webSocketPort;
-        this.manipulateFile = new ManipulateFile();      
+    public MarkdownParser(Path srcPathFile, Path destPathFile) {
+        this.srcPathFile = srcPathFile;
+        this.destPathFile = destPathFile;
     }
 
     
-    public String parse(String pathFile) {  
-        
-        String content = this.manipulateFile.getFileContent(pathFile);
+    @Override
+    public void parse() {
 
-        content = convertHeaders(content);
-        content = convertBold(content);
-        content = convertItalic(content);
-        content = convertLists(content);
-        content = convertLinks(content);
-        content = addJavaScript(content);
+        try {
+            String content = new String(Files.readAllBytes(this.srcPathFile));
+            content = convertHeaders(content);
+            content = convertBold(content);
+            content = convertItalic(content);
+            content = convertLists(content);
+            content = convertLinks(content);
 
-        return content;
+            Files.write(this.destPathFile, content.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
+
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to parse markdown file", e);
+        }
     }
-    
-    
-    private String addJavaScript(String content) {
-        String script = "<script> document.addEventListener('DOMContentLoaded', (event) => { var ws = new WebSocket('ws://localhost:" + this.webSocketPort + "/reload'); ws.onmessage = function(event) { if (event.data === 'reload') { window.location.reload(); } }; }); </script>";
-        content = content + "\n" + script;
-        return content;
-    }
-    
+
 
     private String convertHeaders(String markdown) {
         markdown = markdown.replaceAll("(?m)^# (.+)$", "<h1>$1</h1>");
@@ -51,7 +51,7 @@ public class MarkdownParser implements Parser{
         return markdown;
     }
 
-
+    
     private String convertItalic(String markdown) {
         markdown = markdown.replaceAll("\\*(.+?)\\*", "<em>$1</em>");
         markdown = markdown.replaceAll("_(.+?)_", "<em>$1</em>");
@@ -60,8 +60,7 @@ public class MarkdownParser implements Parser{
 
 
     private String convertLists(String markdown) {
-        markdown = markdown.replaceAll("(?m)^\\* (.+)$", "<li>$1</li>");
-        markdown = markdown.replaceAll("(?m)^- (.+)$", "<li>$1</li>");
+        markdown = markdown.replaceAll("(?m)^(\\*|\\-) (.+)$", "<li>$2</li>");
         markdown = markdown.replaceAll("(?s)(<li>.+?</li>)", "<ul>$1</ul>");
         markdown = markdown.replaceAll("</ul><ul>", "");
         return markdown;
@@ -72,5 +71,4 @@ public class MarkdownParser implements Parser{
         markdown = markdown.replaceAll("\\[(.+?)\\]\\((.+?)\\)", "<a href=\"$2\">$1</a>");
         return markdown;
     }
-
 }

@@ -3,8 +3,8 @@ package com.georgejrdev;
 import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.utils.helper.Helper;
 
-
-public class Main {
+public class SuperToolKit {
+  
     public static void main(String[] args){
 
         Helper helper = new Helper();
@@ -14,8 +14,7 @@ public class Main {
             return;
         }
 
-        String command = args[0];
-        command.toLowerCase();
+        String command = args[0].toLowerCase();
 
         switch (command){
             case "help", "-h":
