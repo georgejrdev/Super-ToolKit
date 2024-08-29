@@ -30,8 +30,9 @@ public class MarkdownParser implements Parser {
             content = convertLinks(content);
 
             Files.write(this.destPathFile, content.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
-
-        } catch (IOException e) {
+        } 
+        
+        catch (IOException e) {
             throw new RuntimeException("Failed to parse markdown file", e);
         }
     }

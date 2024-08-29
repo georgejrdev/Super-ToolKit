@@ -37,6 +37,7 @@ public class ParseExecutor {
         if (!Files.exists(this.destFilePath)) {
             createFileIfNotExist(false);
         }
+
         this.parser.parse();
     }
 
@@ -45,6 +46,7 @@ public class ParseExecutor {
         if (!Files.exists(this.destFilePath)) {
             createFileIfNotExist(true);
         }
+
         HotReload hotReload = new HotReload(this.srcFilePath.toString(), this.destFilePath.toString(), this.HTTP_PORT, this.WEB_SOCKET_PORT, this.parser);
         hotReload.start();
     }
@@ -57,12 +59,15 @@ public class ParseExecutor {
             if (!Files.exists(this.directoryPath)) {
                 Files.createDirectories(this.directoryPath);
             }
+
             Files.createFile(this.destFilePath);
 
             if (reloadScript) {
                 Files.write(this.destFilePath, initialContent.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
             }
-        } catch (IOException e) {
+        } 
+        
+        catch (IOException e) {
             throw new RuntimeException("Failed to create destination file", e);
         }
     }

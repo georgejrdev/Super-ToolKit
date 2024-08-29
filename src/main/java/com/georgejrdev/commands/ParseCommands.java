@@ -55,6 +55,7 @@ public class ParseCommands implements Commands{
 
         if (HOT_RELOAD == null){
             parseExecutor.parseToHtml();
+            
         } else {
             parseExecutor.parseToHtmlWithHotReload();
         }
