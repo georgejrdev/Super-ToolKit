@@ -7,10 +7,9 @@ public class SuperToolKit {
   
     public static void main(String[] args){
 
-        Helper helper = new Helper();
 
         if (args.length == 0){
-            helper.listCommands();
+            Helper.listCommands();
             return;
         }
 
@@ -19,11 +18,11 @@ public class SuperToolKit {
         switch (command){
             case "help", "-h":
                 if (args.length == 2){
-                    helper.listCommands(args[1]);
+                    Helper.listCommands(args[1]);
                     break;
                 }
 
-                helper.listCommands();
+                Helper.listCommands();
                 break;
 
             case "translate", "-t":
@@ -33,12 +32,12 @@ public class SuperToolKit {
                 break;
 
             case "parse", "-p":
-                ParseCommands parseCommands = new ParseCommands(helper);
+                ParseCommands parseCommands = new ParseCommands();
                 parseCommands.run(args);
                 break;
 
             default:
-                helper.nonExistentCommand(command);
+                Helper.nonExistentCommand(command);
                 break;
         }
     }

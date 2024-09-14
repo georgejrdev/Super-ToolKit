@@ -10,6 +10,7 @@ import com.georgejrdev.lib.reload.HotReload;
 import com.georgejrdev.lib.reload.Parser;
 import com.georgejrdev.utils.parser.MarkdownParser;
 
+
 public class ParseExecutor {
 
     private final Parser parser;

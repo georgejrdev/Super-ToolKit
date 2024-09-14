@@ -7,59 +7,49 @@ import java.util.LinkedHashMap;
 
 
 public class Helper {
-    
-    private Map<String, List<String>> COMMANDS_SYNTAX;
-    
-    private List<String> HELP_COMMANDS;
-    private List<String> TRANSLATE_COMMANDS;
-    private List<String> TODO_COMMANDS;
-    private List<String> PARSE_COMMANDS;
-
-    public Helper(){
         
-        this.HELP_COMMANDS = new ArrayList<String>(){{
-            add("stk help : list all commands");
-            add("stk -h : list all commands");
-            
-            add("stk help [command] : list specific command");
-            add("stk -h [command] : list specific command");
-        }};
-
-        this.TRANSLATE_COMMANDS = new ArrayList<String>(){{
-            add("stk translate [text] [language] : translate text");
-            add("stk -t [text] [language] : translate text");
-        }};
-
-        this.TODO_COMMANDS = new ArrayList<String>(){{
-            add("stk todo add [text] : add ToDo");
-            add("stk -td add [text] : add ToDo");
-            add("stk todo remove [id] : remove ToDo");
-            add("stk -td remove [id] : remove ToDo");
-            add("stk todo list: list all ToDo's");
-            add("stk -td list : list all ToDo's");
-            add("stk todo check [id] : check ToDo");
-            add("stk -td check [id] : check ToDo");
-            add("stk todo uncheck [id] : uncheck ToDo");
-            add("stk -td uncheck [id] : uncheck ToDo");
-        }};
-
-        this.PARSE_COMMANDS = new ArrayList<String>(){{
-            add("stk parse [path/to/file] : parse Markdown File to HTML");
-            add("stk -p [path/to/file] : parse Markdown File to HTML");
-            add("stk parse watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
-            add("stk -p watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
-        }};
-
-        this.COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
-            put("help", HELP_COMMANDS);
-            put("translate", TRANSLATE_COMMANDS);
-            put("todo", TODO_COMMANDS);
-            put("parse", PARSE_COMMANDS);            
-        }};
-    }
-
+    static private List<String> HELP_COMMANDS = new ArrayList<String>(){{
+        add("stk help : list all commands");
+        add("stk -h : list all commands");
     
-    public void listCommands(){
+        add("stk help [command] : list specific command");
+        add("stk -h [command] : list specific command");
+    }};
+
+    static private List<String> TRANSLATE_COMMANDS = new ArrayList<String>(){{
+        add("stk translate [text] [language] : translate text");
+        add("stk -t [text] [language] : translate text");
+    }};
+
+    static private List<String> TODO_COMMANDS = new ArrayList<String>(){{
+        add("stk todo add [text] : add ToDo");
+        add("stk -td add [text] : add ToDo");
+        add("stk todo remove [id] : remove ToDo");
+        add("stk -td remove [id] : remove ToDo");
+        add("stk todo list: list all ToDo's");
+        add("stk -td list : list all ToDo's");
+        add("stk todo check [id] : check ToDo");
+        add("stk -td check [id] : check ToDo");
+        add("stk todo uncheck [id] : uncheck ToDo");
+        add("stk -td uncheck [id] : uncheck ToDo");
+    }};
+
+    static private List<String> PARSE_COMMANDS = new ArrayList<String>(){{
+        add("stk parse [path/to/file] : parse Markdown File to HTML");
+        add("stk -p [path/to/file] : parse Markdown File to HTML");
+        add("stk parse watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
+        add("stk -p watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
+    }};
+
+    static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
+        put("help", HELP_COMMANDS);
+        put("translate", TRANSLATE_COMMANDS);
+        put("todo", TODO_COMMANDS);
+        put("parse", PARSE_COMMANDS);            
+    }};
+
+
+    static public void listCommands(){
         for(String command : COMMANDS_SYNTAX.keySet()){
             System.out.println("");
             for (String syntax : COMMANDS_SYNTAX.get(command)){
@@ -70,7 +60,7 @@ public class Helper {
     }
     
 
-    public void listCommands(String command){
+    static public void listCommands(String command){
 
         command = command.toLowerCase();
 
@@ -94,7 +84,7 @@ public class Helper {
     }
     
     
-    public void nonExistentCommand(String command){
+    static public void nonExistentCommand(String command){
 
         command = command.toLowerCase();
 
@@ -105,7 +95,7 @@ public class Helper {
     }
 
 
-    public void invalidOption(String command, String option){
+    static public void invalidOption(String command, String option){
 
         command = command.toLowerCase();
         option = option.toLowerCase();

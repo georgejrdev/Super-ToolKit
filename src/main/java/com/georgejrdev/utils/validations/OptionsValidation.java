@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
+import java.util.LinkedHashMap;
+
 import com.georgejrdev.utils.exceptions.InvalidOptionCommand;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
-
-import java.util.LinkedHashMap;
 
 
 public class OptionsValidation {

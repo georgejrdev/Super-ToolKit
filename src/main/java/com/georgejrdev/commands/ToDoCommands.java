@@ -9,11 +9,9 @@ import com.georgejrdev.utils.validations.OptionsValidation;
 
 public class ToDoCommands implements Commands{
     
-    private final Helper helper;
     private final OptionsValidation optionsValidation;
 
-    public ToDoCommands(Helper helper){
-        this.helper = helper;
+    public ToDoCommands(){
         this.optionsValidation = new OptionsValidation();
     }
 
@@ -28,18 +26,18 @@ public class ToDoCommands implements Commands{
         
         catch (UnexpectedNumberOfParameters e){
             System.out.println("Unexpected number of parameters");
-            helper.listCommands(args[0]);
+            Helper.listCommands(args[0]);
             return;
         } 
 
         catch (InvalidOptionCommand e){
-            helper.invalidOption(args[0], args[1]);
+            Helper.invalidOption(args[0], args[1]);
             return;
         }
 
         catch (IllegalArgumentException e){
             System.out.println("Argument " + args[2] + " is not valid");
-            helper.listCommands(args[0]);
+            Helper.listCommands(args[0]);
             return;
         }
 
