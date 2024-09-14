@@ -12,34 +12,27 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 
 public class OptionsValidation {
 
-    private Map<String, List<String>> AVAILABLE_OPTIONS;
-    private List<String> TODO_OPTIONS;
-    private List<String> PARSE_OPTIONS;
+    static private List<String> TODO_OPTIONS = new ArrayList<String>(){{
+        add("add");
+        add("remove");
+        add("list");
+        add("check");
+        add("uncheck");
+    }};
 
-    public OptionsValidation(){
+    static private List<String> PARSE_OPTIONS = new ArrayList<String>(){{
+        add("watch");
+    }};
 
-        this.TODO_OPTIONS = new ArrayList<String>(){{
-            add("add");
-            add("remove");
-            add("list");
-            add("check");
-            add("uncheck");
-        }};
-
-        this.PARSE_OPTIONS = new ArrayList<String>(){{
-            add("watch");
-        }};
-
-        this.AVAILABLE_OPTIONS = new LinkedHashMap<String, List<String>>(){{
-            put("todo", TODO_OPTIONS);
-            put("-td", TODO_OPTIONS);
-            put("-p", PARSE_OPTIONS);
-            put("parse", PARSE_OPTIONS);
-        }};
-    }   
+    static private Map<String, List<String>> AVAILABLE_OPTIONS = new LinkedHashMap<String, List<String>>(){{
+        put("todo", TODO_OPTIONS);
+        put("-td", TODO_OPTIONS);
+        put("-p", PARSE_OPTIONS);
+        put("parse", PARSE_OPTIONS);
+    }};
 
 
-    public void optionIsAvailable(String command, String option) throws InvalidOptionCommand{
+    static public void optionIsAvailable(String command, String option) throws InvalidOptionCommand{
 
         command = command.toLowerCase();
         option = option.toLowerCase();
@@ -58,7 +51,7 @@ public class OptionsValidation {
     }
 
 
-    public void expectedQuantityOfParameters(String args[], int quantity) throws UnexpectedNumberOfParameters{
+    static public void expectedQuantityOfParameters(String args[], int quantity) throws UnexpectedNumberOfParameters{
         
         if (args.length != quantity){
             throw new UnexpectedNumberOfParameters();
@@ -66,7 +59,7 @@ public class OptionsValidation {
     }
 
 
-    public void expectedQuantityOfParameters(String args[], int firstQuantity, int secondQuantity) throws UnexpectedNumberOfParameters{
+    static public void expectedQuantityOfParameters(String args[], int firstQuantity, int secondQuantity) throws UnexpectedNumberOfParameters{
         
         if (args.length != firstQuantity && args.length != secondQuantity){
             throw new UnexpectedNumberOfParameters();
@@ -74,7 +67,7 @@ public class OptionsValidation {
     }
     
 
-    public void parameterIsAvailable(String parameter) throws IllegalArgumentException{
+    static public void parameterIsAvailable(String parameter) throws IllegalArgumentException{
         
         parameter = parameter.toLowerCase();
 

@@ -9,19 +9,15 @@ import com.georgejrdev.utils.validations.OptionsValidation;
 
 public class ToDoCommands implements Commands{
     
-    private final OptionsValidation optionsValidation;
-
-    public ToDoCommands(){
-        this.optionsValidation = new OptionsValidation();
-    }
+    public ToDoCommands(){}
 
 
     public void run(String[] args){
 
         try{
-            this.optionsValidation.expectedQuantityOfParameters(args, 3);
-            this.optionsValidation.optionIsAvailable(args[0],args[1]);
-            this.optionsValidation.parameterIsAvailable(args[2]);
+            OptionsValidation.expectedQuantityOfParameters(args, 3);
+            OptionsValidation.optionIsAvailable(args[0],args[1]);
+            OptionsValidation.parameterIsAvailable(args[2]);
         }
         
         catch (UnexpectedNumberOfParameters e){

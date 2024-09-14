@@ -10,23 +10,19 @@ import com.georgejrdev.utils.validations.OptionsValidation;
 
 public class ParseCommands implements Commands{
     
-    private final OptionsValidation optionsValidation;
-
-    public ParseCommands(){
-        this.optionsValidation = new OptionsValidation();
-    }
+    public ParseCommands(){}
 
 
     public void run(String[] args){
         
         try {
-            this.optionsValidation.expectedQuantityOfParameters(args, 2, 3);
+            OptionsValidation.expectedQuantityOfParameters(args, 2, 3);
             
             if (args.length == 3){
-                this.optionsValidation.optionIsAvailable(args[0],args[1]);
+                OptionsValidation.optionIsAvailable(args[0],args[1]);
             }
 
-            this.optionsValidation.parameterIsAvailable(args[args.length - 1]);
+            OptionsValidation.parameterIsAvailable(args[args.length - 1]);
         } 
 
         catch (UnexpectedNumberOfParameters e){
