@@ -78,9 +78,5 @@ public class OptionsValidation {
         if (parameter.isEmpty()){
             throw new IllegalArgumentException();
         }
-
-        if (parameter.contains(" ")){
-            throw new IllegalArgumentException();
-        }
     }
 }
