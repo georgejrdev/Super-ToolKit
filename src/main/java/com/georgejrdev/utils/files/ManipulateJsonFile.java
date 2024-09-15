@@ -14,13 +14,13 @@ import java.util.Map;
 import java.io.File;
 
 
-public class ManipulateFile {
+public class ManipulateJsonFile {
     
     private String path;
     private boolean fileExist;
     private List<Map<String, Object>> content;
 
-    public ManipulateFile(String path) {
+    public ManipulateJsonFile(String path) {
         this.path = path;
         this.fileExist = false;
         this.content = new ArrayList<>();

@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
 
-import com.georgejrdev.utils.files.ManipulateFile;
+import com.georgejrdev.utils.files.ManipulateJsonFile;
 
 
 public class ToDoExecutor {
     
     private String pathSave;
     private String os;
-    private ManipulateFile manipulateFile;
+    private ManipulateJsonFile manipulateFile;
 
     public ToDoExecutor(){
         getCorrectPath();
-        this.manipulateFile = new ManipulateFile(getPathSave());
+        this.manipulateFile = new ManipulateJsonFile(getPathSave());
     }
 
 
