@@ -1,6 +1,7 @@
 package com.georgejrdev;
 
 import com.georgejrdev.commands.ParseCommands;
+import com.georgejrdev.commands.TranslateCommands;
 import com.georgejrdev.utils.helper.Helper;
 
 public class SuperToolKit {
@@ -26,6 +27,8 @@ public class SuperToolKit {
                 break;
 
             case "translate", "-t":
+                TranslateCommands translateCommands = new TranslateCommands();
+                translateCommands.run(args);
                 break;
 
             case "todo", "-td":
