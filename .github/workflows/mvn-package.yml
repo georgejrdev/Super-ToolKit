@@ -69,6 +69,11 @@ jobs:
           mv linux${version}.zip ./build/
           echo "Moved linux${version}.zip to ./build/"
 
+      - name: Remove SuperToolKit.jar from root
+        run: |
+          rm -f SuperToolKit.jar
+          echo "Deleted SuperToolKit.jar from root directory"
+
       - name: Delete linux<version> directory
         run: |
           version=${{ steps.extract_version.outputs.version }}
