@@ -60,11 +60,11 @@ public class ToDoExecutor {
         setOs(System.getProperty("os.name"));
 
         if (getOs() != null && getOs().toLowerCase().contains("linux")){
-                setPathSave(System.getenv("HOME") + "/ToolKit-dev/save/ToDoSave.json");;
+                setPathSave(System.getenv("HOME") + "/Super-ToolKit/save/ToDoSave.json");;
 
         } else {
             String appData = System.getenv("APPDATA");
-            setPathSave(appData + "\\toolkit-dev\\save\\ToDoSave.json");
+            setPathSave(appData + "\\Super-ToolKit\\save\\ToDoSave.json");
         }
     } 
 

@@ -90,7 +90,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add README.md SuperToolKit.jar build/
+          git add README.md build/
           git commit -m "Update README.md with version ${version}"
           git push
         env:
