@@ -17,7 +17,10 @@
 
 ## Download
 
+<a href="https://github.com/georgejrdev/ToolKit-Development/raw/main/build/linux3.0.0.zip">![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)</a>
+<a href="#">![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)</a>
+
 ## Install
 
 - Extract .zip file
-- Run Install as administrator
+- Run Install file
