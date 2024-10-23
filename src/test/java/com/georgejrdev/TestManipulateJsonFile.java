@@ -2,14 +2,11 @@ package com.georgejrdev;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import java.util.List;
 import java.util.Map;
-
 import com.georgejrdev.utils.files.ManipulateJsonFile;
-
 
 public class TestManipulateJsonFile {
 
@@ -20,20 +17,17 @@ public class TestManipulateJsonFile {
         mJsonFile = new ManipulateJsonFile("./test.json");
         mJsonFile.createNewJsonFile();
     }
-    
 
     @Test
     public void testCreateNewJsonFile(){
         mJsonFile.createNewJsonFile();
     }
 
-
     @Test
     public void testAddItemInJsonFile(){
         mJsonFile.addItemInJsonFile("Hey");
     }
 
-    
     @Test
     public void testUpdateItemInJsonFile(){
         mJsonFile.addItemInJsonFile("Hi");
@@ -43,7 +37,6 @@ public class TestManipulateJsonFile {
         
         mJsonFile.updateItemInJsonFile(id, false);
     }
-
 
     @Test
     public void testGetContentJsonFile(){
@@ -55,7 +48,6 @@ public class TestManipulateJsonFile {
         assertNotNull(content);
         assertFalse(content.isEmpty());
     }
-
 
     @Test
     public void testDeleteItemInJsonFile(){

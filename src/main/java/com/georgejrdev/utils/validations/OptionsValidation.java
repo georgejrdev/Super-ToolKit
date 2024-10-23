@@ -3,12 +3,9 @@ package com.georgejrdev.utils.validations;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
-
 import java.util.LinkedHashMap;
-
 import com.georgejrdev.utils.exceptions.InvalidOptionCommand;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
-
 
 public class OptionsValidation {
 
@@ -36,9 +33,7 @@ public class OptionsValidation {
         put("convert", CONVERT_OPTIONS);
     }};
 
-
     static public void optionIsAvailable(String command, String option) throws InvalidOptionCommand{
-
         command = command.toLowerCase();
         option = option.toLowerCase();
 
@@ -55,17 +50,13 @@ public class OptionsValidation {
         }
     }
 
-
     static public void expectedQuantityOfParameters(String args[], int quantity) throws UnexpectedNumberOfParameters{
-        
         if (args.length != quantity){
             throw new UnexpectedNumberOfParameters();
         }
     }
 
-
     static public void expectedQuantityOfParameters(String args[], int firstQuantity, int secondQuantity) throws UnexpectedNumberOfParameters{
-        
         if (args.length != firstQuantity && args.length != secondQuantity){
             throw new UnexpectedNumberOfParameters();
         }
@@ -73,7 +64,6 @@ public class OptionsValidation {
     
 
     static public void parameterIsAvailable(String parameter) throws IllegalArgumentException{
-        
         parameter = parameter.toLowerCase();
 
         if (parameter == null){

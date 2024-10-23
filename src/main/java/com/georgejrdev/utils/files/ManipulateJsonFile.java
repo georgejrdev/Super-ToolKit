@@ -1,18 +1,17 @@
 package com.georgejrdev.utils.files;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.io.File;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class ManipulateJsonFile {
     
@@ -25,7 +24,6 @@ public class ManipulateJsonFile {
         this.fileExist = false;
         this.content = new ArrayList<>();
     }
-
     
     public void createNewJsonFile() {
         File file = new File(this.path);
@@ -46,7 +44,6 @@ public class ManipulateJsonFile {
             this.fileExist = true;
         }
     }
-
 
     public void addItemInJsonFile(String content) {
         if (!this.fileExist) {
@@ -81,7 +78,6 @@ public class ManipulateJsonFile {
         }
     }
 
-
     public void updateItemInJsonFile(int id, boolean newStatus) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
@@ -102,7 +98,6 @@ public class ManipulateJsonFile {
         }
     }
 
-
     public void deleteItemInJsonFile(int id) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
@@ -122,7 +117,6 @@ public class ManipulateJsonFile {
             System.out.println("Item with ID " + id + " not found.");
         }
     }
-
 
     public List<Map<String, Object>> getContentJsonFile() {
         Gson gson = new Gson();
@@ -151,7 +145,6 @@ public class ManipulateJsonFile {
 
         return this.content;
     }
-
 
     private void writeContentToFile(List<Map<String, Object>> content) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

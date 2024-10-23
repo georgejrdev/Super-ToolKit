@@ -7,11 +7,7 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
 
-
 public class ToDoCommands implements Commands{
-    
-    public ToDoCommands(){}
-
 
     public void run(String[] args){
 

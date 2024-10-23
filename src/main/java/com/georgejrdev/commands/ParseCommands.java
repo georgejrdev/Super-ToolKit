@@ -7,12 +7,8 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
 
-
 public class ParseCommands implements Commands{
     
-    public ParseCommands(){}
-
-
     public void run(String[] args){
         
         try {

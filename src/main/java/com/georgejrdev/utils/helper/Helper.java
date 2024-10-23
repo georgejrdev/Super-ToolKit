@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-
 public class Helper {
         
     static private List<String> HELP_COMMANDS = new ArrayList<String>(){{
@@ -44,22 +43,19 @@ public class Helper {
         put("convert", CONVERT_COMMANDS);
     }};
 
-
     static public void listCommands(){
         for(String command : COMMANDS_SYNTAX.keySet()){
             System.out.println("");
+            
             for (String syntax : COMMANDS_SYNTAX.get(command)){
                 System.out.println(syntax);
             }
         }
         System.out.println("");
     }
-    
 
     static public void listCommands(String command){
-
         command = command.toLowerCase();
-
         List<String> syntaxes = COMMANDS_SYNTAX.get(command);
 
         if (syntaxes == null){
@@ -74,9 +70,7 @@ public class Helper {
         System.out.println("");
     }
     
-    
     static public void nonExistentCommand(String command){
-
         command = command.toLowerCase();
 
         System.out.println("");
@@ -85,9 +79,7 @@ public class Helper {
         System.out.println("");
     }
 
-
     static public void invalidOption(String command, String option){
-
         command = command.toLowerCase();
         option = option.toLowerCase();
 
