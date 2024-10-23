@@ -9,43 +9,39 @@ import java.util.LinkedHashMap;
 public class Helper {
         
     static private List<String> HELP_COMMANDS = new ArrayList<String>(){{
-        add("stk help : list all commands");
-        add("stk -h : list all commands");
-    
+        add("stk help : list all commands");    
         add("stk help [command] : list specific command");
-        add("stk -h [command] : list specific command");
     }};
 
     static private List<String> TRANSLATE_COMMANDS = new ArrayList<String>(){{
         add("stk translate [text] [language] : translate text");
-        add("stk -t [text] [language] : translate text");
     }};
 
     static private List<String> TODO_COMMANDS = new ArrayList<String>(){{
         add("stk todo add [text] : add ToDo");
-        add("stk -td add [text] : add ToDo");
         add("stk todo remove [id] : remove ToDo");
-        add("stk -td remove [id] : remove ToDo");
         add("stk todo list: list all ToDo's");
-        add("stk -td list : list all ToDo's");
         add("stk todo check [id] : check ToDo");
-        add("stk -td check [id] : check ToDo");
         add("stk todo uncheck [id] : uncheck ToDo");
-        add("stk -td uncheck [id] : uncheck ToDo");
     }};
 
     static private List<String> PARSE_COMMANDS = new ArrayList<String>(){{
         add("stk parse [path/to/file] : parse Markdown File to HTML");
-        add("stk -p [path/to/file] : parse Markdown File to HTML");
         add("stk parse watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
-        add("stk -p watch [path/to/file] : parse Markdown File to HTML and watch changes in real time");
+    }};
+
+    static private List<String> CONVERT_COMMANDS = new ArrayList<String>(){{
+        add("stk convert image [path/to/file] [*newType] : Convert image file to a new type");
+        add("stk convert video [path/to/file] [*newType] : Convert video file to a new type");
+        add("stk convert audio [path/to/file] [*newType] : Convert audio file to a new type");
     }};
 
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
         put("todo", TODO_COMMANDS);
-        put("parse", PARSE_COMMANDS);            
+        put("parse", PARSE_COMMANDS);          
+        put("convert", CONVERT_COMMANDS);
     }};
 
 
@@ -63,11 +59,6 @@ public class Helper {
     static public void listCommands(String command){
 
         command = command.toLowerCase();
-
-        command = (command.equals("-h")) ? "help" : command;
-        command = (command.equals("-t")) ? "translate" : command;
-        command = (command.equals("-td")) ? "todo" : command;
-        command = (command.equals("-p")) ? "parse" : command;
 
         List<String> syntaxes = COMMANDS_SYNTAX.get(command);
 

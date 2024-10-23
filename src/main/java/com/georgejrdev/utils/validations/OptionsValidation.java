@@ -24,11 +24,16 @@ public class OptionsValidation {
         add("watch");
     }};
 
+    static private List<String> CONVERT_OPTIONS = new ArrayList<String>(){{
+        add("image");
+        add("video");
+        add("audio");
+    }};
+
     static private Map<String, List<String>> AVAILABLE_OPTIONS = new LinkedHashMap<String, List<String>>(){{
         put("todo", TODO_OPTIONS);
-        put("-td", TODO_OPTIONS);
-        put("-p", PARSE_OPTIONS);
         put("parse", PARSE_OPTIONS);
+        put("convert", CONVERT_OPTIONS);
     }};
 
 
