@@ -41,7 +41,7 @@ jobs:
         run: |
           version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
           echo "Project version: $version"
-          echo "::set-output name=version::$version"
+          echo "version=$version" >> $GITHUB_ENV
 
       - name: Rename JAR to SuperToolKit.jar
         run: |
@@ -50,8 +50,7 @@ jobs:
 
       - name: Create linux<version> directory and copy files
         run: |
-          version=${{ steps.extract_version.outputs.version }}
-          dir_name="linux${version}"
+          dir_name="linux${{ env.version }}"
           mkdir $dir_name
           cp SuperToolKit.jar $dir_name/
           cp ./scripts/install.sh $dir_name/
@@ -60,44 +59,57 @@ jobs:
 
       - name: Compress linux<version> to ZIP
         run: |
-          version=${{ steps.extract_version.outputs.version }}
-          dir_name="linux${version}"
+          dir_name="linux${{ env.version }}"
           zip -r "${dir_name}.zip" $dir_name
           echo "Compressed $dir_name to ${dir_name}.zip"
 
       - name: Create build directory
         run: mkdir -p ./build
 
-      - name: Move ZIP to build directory
+      - name: Move Linux ZIP to build directory
         run: |
-          version=${{ steps.extract_version.outputs.version }}
-          mv linux${version}.zip ./build/
-          echo "Moved linux${version}.zip to ./build/"
+          mv linux${{ env.version }}.zip ./build/
+          echo "Moved linux${{ env.version }}.zip to ./build/"
 
-      - name: Remove SuperToolKit.jar from root
+      - name: Create windows<version> directory and copy files
         run: |
-          rm -f SuperToolKit.jar
-          echo "Deleted SuperToolKit.jar from root directory"
+          dir_name="windows${{ env.version }}"
+          mkdir $dir_name
+          cp SuperToolKit.jar $dir_name/
+          cp ./scripts/install.bat $dir_name/
+          cp ./scripts/stk.bat $dir_name/
+          echo "Copied JAR and scripts to $dir_name"
 
-      - name: Delete linux<version> directory
+      - name: Compress windows<version> to ZIP
         run: |
-          version=${{ steps.extract_version.outputs.version }}
-          rm -rf linux${version}
-          echo "Deleted linux${version} directory"
+          dir_name="windows${{ env.version }}"
+          zip -r "${dir_name}.zip" $dir_name
+          echo "Compressed $dir_name to ${dir_name}.zip"
+
+      - name: Move Windows ZIP to build directory
+        run: |
+          mv windows${{ env.version }}.zip ./build/
+          echo "Moved windows${{ env.version }}.zip to ./build/"
+
+      - name: Cleanup Temporary Files
+        run: |
+          rm -rf linux* windows* SuperToolKit.jar
 
       - name: Update README.md with new version
         run: |
-          version=${{ steps.extract_version.outputs.version }}
-          sed -i "s/[0-9]\+\.[0-9]\+\.[0-9]\+/$version/g" README.md
+          sed -i "s/[0-9]\+\.[0-9]\+\.[0-9]\+/${{ env.version }}/g" README.md
           sed -i "s/SuperToolKit-[0-9]\+\.[0-9]\+\.[0-9]\+\.jar/SuperToolKit.jar/g" README.md
 
       - name: Commit and push changes
         run: |
-          version=${{ steps.extract_version.outputs.version }}
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git add README.md build/
-          git commit -m "Build - version: ${version}"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git add README.md build/
+            git commit -m "Build - version: ${{ env.version }}"
+            git push
+          else
+            echo "No changes to commit."
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
