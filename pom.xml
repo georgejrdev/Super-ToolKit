@@ -5,7 +5,7 @@
 
     <groupId>com.georgejrdev</groupId>
     <artifactId>toolkit-dev</artifactId>
-    <version>3.3.0</version>
+    <version>3.3.1</version>
 
     <build>
         <plugins>

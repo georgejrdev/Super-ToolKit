@@ -6,4 +6,4 @@ for %%a in (%*) do (
     set PARAMS=!PARAMS! %%a
 )
 
-java -jar "%FILE_TKD%\SuperToolKit.jar" !PARAMS!
+java -jar "%FILE_STK%\SuperToolKit.jar" !PARAMS!
