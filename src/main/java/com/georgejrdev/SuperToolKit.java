@@ -1,6 +1,7 @@
 package com.georgejrdev;
 
 import com.georgejrdev.commands.ConvertCommands;
+import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
@@ -45,6 +46,11 @@ public class SuperToolKit {
             case "convert":
                 ConvertCommands convertCommands = new ConvertCommands();
                 convertCommands.run(args);
+                break;
+
+            case "commit":
+                GetCommitMessageCommand getCommitMessageCommand = new GetCommitMessageCommand();
+                getCommitMessageCommand.run(args);
                 break;
 
             default:

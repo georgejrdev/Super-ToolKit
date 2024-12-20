@@ -35,12 +35,17 @@ public class Helper {
         add("stk convert audio [path/to/file] [*newType] : Convert audio file to a new type");
     }};
 
+    static private List<String> COMMIT_MESSAGE_COMMANDS = new ArrayList<String>(){{
+        add("stk commit [description] : Get commit message");
+    }};
+
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
         put("todo", TODO_COMMANDS);
         put("parse", PARSE_COMMANDS);          
         put("convert", CONVERT_COMMANDS);
+        put("commit", COMMIT_MESSAGE_COMMANDS);
     }};
 
     static public void listCommands(){

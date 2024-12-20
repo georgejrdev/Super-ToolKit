@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.LinkedHashMap;
+
+import com.georgejrdev.utils.exceptions.AIKeyNotFound;
 import com.georgejrdev.utils.exceptions.InvalidOptionCommand;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 
@@ -72,6 +74,12 @@ public class OptionsValidation {
 
         if (parameter.isEmpty()){
             throw new IllegalArgumentException();
+        }
+    }
+
+    static public void isAIKeyConfigured() throws AIKeyNotFound {
+        if (System.getenv("STK_GEMINI_API_KEY") == null){
+            throw new AIKeyNotFound();
         }
     }
 }
