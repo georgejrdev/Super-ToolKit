@@ -9,6 +9,8 @@ import com.georgejrdev.utils.helper.Helper;
 
 public class SuperToolKit {
 
+    static public final String VERSION = "3.3.1";
+
     public static void main(String[] args){
 
         if (args.length == 0){
@@ -26,6 +28,10 @@ public class SuperToolKit {
                 }
 
                 Helper.listCommands();
+                break;
+            
+            case "version":
+                System.out.println("v" + VERSION);
                 break;
 
             case "translate":
