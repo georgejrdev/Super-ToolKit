@@ -16,10 +16,10 @@ jobs:
       - name: Install custom JAR lib-utils
         run: |
           mvn install:install-file \
-            -Dfile=./local-dependencies/Lib-Utils-1.1.2.jar \
+            -Dfile=./local-dependencies/Lib-Utils-1.1.3.jar \
             -DgroupId=com.georgejrdev \
             -DartifactId=lib-utils \
-            -Dversion=1.1.2 \
+            -Dversion=1.1.3 \
             -Dpackaging=jar
 
       - name: Set up JDK 17
