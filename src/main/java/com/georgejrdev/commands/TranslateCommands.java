@@ -4,6 +4,7 @@ import com.georgejrdev.commands.interfaces.Commands;
 import com.georgejrdev.executors.TranslatorExecutor;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
+import com.georgejrdev.utils.ia.GeminiRequest;
 import com.georgejrdev.utils.validations.OptionsValidation;
 
 public class TranslateCommands implements Commands{
@@ -31,6 +32,7 @@ public class TranslateCommands implements Commands{
         final String TEXT = args[1];
         final String LANGUAGE = args[2];
 
-        TranslatorExecutor.translate(TEXT, LANGUAGE);
+        TranslatorExecutor translator = new TranslatorExecutor(new GeminiRequest());
+        translator.translate(TEXT, LANGUAGE);
     }
 }

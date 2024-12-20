@@ -1,13 +1,11 @@
 package com.georgejrdev;
 
 import static org.junit.Assert.assertEquals;
-
 import org.junit.Before;
 import org.junit.Test;
 
 import com.georgejrdev.executors.GetCommitMessageExecutor;
 import com.georgejrdev.utils.ia.GeminiRequest;
-
 
 public class TestGetCommitMessageExecutor {
 

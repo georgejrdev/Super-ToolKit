@@ -32,6 +32,12 @@
 - stk **todo** check id
 - stk **todo** uncheck id
 
+#### Translate
+- stk **translate** text target_language
+
+#### Get Commit Message
+- stk **commit** commit_description
+
 <br>
 
 # How to install:
