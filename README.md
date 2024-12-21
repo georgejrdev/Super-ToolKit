@@ -5,7 +5,7 @@
 <div id="badges" align="center">
 
 ![License](https://img.shields.io/github/license/georgejrdev/Super-ToolKit.svg)
-![Version](https://img.shields.io/badge/version-4.0.1-53918E.svg)
+![Version](https://img.shields.io/badge/version-4.0.2-53918E.svg)
 ![Windows](https://img.shields.io/badge/made%20for-linux-AD6845.svg)
 
 </div>
@@ -50,8 +50,8 @@
 
 ## Download
 
-<a href="https://github.com/georgejrdev/Super-ToolKit/raw/main/build/linux4.0.1.zip">![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)</a>
-<a href="https://github.com/georgejrdev/Super-ToolKit/raw/main/build/windows4.0.1.zip">![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)</a>
+<a href="https://github.com/georgejrdev/Super-ToolKit/raw/main/build/linux4.0.2.zip">![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)</a>
+<a href="https://github.com/georgejrdev/Super-ToolKit/raw/main/build/windows4.0.2.zip">![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)</a>
 
 ## Install
 
