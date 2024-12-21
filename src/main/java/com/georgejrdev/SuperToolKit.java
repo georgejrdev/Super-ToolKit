@@ -6,12 +6,15 @@ import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
 import com.georgejrdev.utils.helper.Helper;
+import com.georgejrdev.utils.helper.Updater;
 
 public class SuperToolKit {
 
     static public final String VERSION = "3.3.1";
 
     public static void main(String[] args){
+
+        Updater.updateIsAvailable();
 
         if (args.length == 0){
             Helper.listCommands();
@@ -31,7 +34,11 @@ public class SuperToolKit {
                 break;
             
             case "version":
-                System.out.println("v" + VERSION);
+                System.out.println("Current version: v" + VERSION);
+                break;
+
+            case "update":
+                Updater.update();
                 break;
 
             case "translate":
