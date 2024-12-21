@@ -4,11 +4,15 @@ import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import com.georgejrdev.utils.exceptions.AIKeyNotFound;
 import com.georgejrdev.utils.validations.OptionsValidation;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class GeminiRequest implements IARequest {
+
+    private static final Logger logger = AppLogger.getLogger();
 
     public IAResponse request(String prompt){
 
@@ -18,6 +22,7 @@ public class GeminiRequest implements IARequest {
 
         catch (AIKeyNotFound e){
             String message = "AI Key not found. \nUse 'stk config' with the value of your gemini-1.5-flash API access key. \nIt's free. Link: https://ai.google.dev/pricing?hl=pt-br#1_5flash";
+            logger.severe(message);
             return new IAResponse(false, message);
         }
 
@@ -58,17 +63,20 @@ public class GeminiRequest implements IARequest {
                 String commitMessage = parts.getJSONObject(0).getString("text");
                 
                 commitMessage = commitMessage.replace("\n", "").trim();
+
+                logger.info("GeminiRequest Success: Prompt: "+prompt+" Response: "+commitMessage);
                 return new IAResponse(true, commitMessage);
 
             } else {
                 String errorResponse = response.body().string();
                 String errorMessage = "Error: " + response.code() + " - " + errorResponse;
+                logger.severe("GeminiRequest Error: "+errorMessage);
                 return new IAResponse(false, errorMessage);
             }
             
         } catch (IOException e) {
-            
             String errorMessage = "Network or IO error: " + e.getMessage();
+            logger.severe("GeminiRequest Error: "+errorMessage);
             return new IAResponse(false, errorMessage);
         }
     }

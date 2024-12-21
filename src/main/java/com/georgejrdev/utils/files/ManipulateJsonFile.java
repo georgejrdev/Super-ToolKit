@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
+import com.georgejrdev.utils.helper.AppLogger;;
 
 public class ManipulateJsonFile {
     
     private String path;
     private boolean fileExist;
     private List<Map<String, Object>> content;
+    private static final Logger logger = AppLogger.getLogger();
 
     public ManipulateJsonFile(String path) {
         this.path = path;
@@ -26,6 +30,7 @@ public class ManipulateJsonFile {
     }
     
     public void createNewJsonFile() {
+        logger.info("Creating new json file at path: " + this.path);
         File file = new File(this.path);
 
         if (!file.exists()) {
@@ -35,9 +40,11 @@ public class ManipulateJsonFile {
             try (FileWriter writer = new FileWriter(this.path)) {
                 writer.write(emptyJsonArray);
                 this.fileExist = true;
+                logger.info("Json file created at path: " + this.path);
 
             } catch (IOException e) {
                 e.printStackTrace();
+                logger.severe("Error creating new json file at path: " + this.path + " - " + e.getMessage());
             }
 
         } else {
@@ -72,9 +79,11 @@ public class ManipulateJsonFile {
 
         try (FileWriter writer = new FileWriter(this.path)) {
             gson.toJson(currentContent, writer);
+            logger.info("Item "+content+" added to json file at path: " + this.path);
 
         } catch (IOException e) {
             e.printStackTrace();
+            logger.severe("Error adding" +content+ "to json file at path: " + this.path + " - " + e.getMessage());
         }
     }
 
@@ -93,8 +102,10 @@ public class ManipulateJsonFile {
 
         if (found) {
             writeContentToFile(currentContent);
+            logger.info("Item with ID " + id + " updated. New status: " + newStatus);
         } else {
             System.out.println("Item with ID " + id + " not found.");
+            logger.severe("Item with ID " + id + " not found.");
         }
     }
 
@@ -113,8 +124,10 @@ public class ManipulateJsonFile {
 
         if (found) {
             writeContentToFile(currentContent);
+            logger.info("Item with ID " + id + " deleted.");
         } else {
             System.out.println("Item with ID " + id + " not found.");
+            logger.severe("Item with ID " + id + " not found.");
         }
     }
 
@@ -135,8 +148,11 @@ public class ManipulateJsonFile {
                 }
             }
 
+            logger.info("Json file read at path: " + this.path);
+
         } catch (IOException e) {
             e.printStackTrace();
+            logger.severe("Error reading json file at path: " + this.path + " - " + e.getMessage());
         }
 
         if (this.content == null) {
@@ -151,9 +167,10 @@ public class ManipulateJsonFile {
 
         try (FileWriter writer = new FileWriter(this.path)) {
             gson.toJson(content, writer);
-
+            logger.info("Json file updated at path: " + this.path + " with content: " + content);
         } catch (IOException e) {
             e.printStackTrace();
+            logger.severe("Error updating json file at path: " + this.path + " - " + e.getMessage());
         }
     }
 }

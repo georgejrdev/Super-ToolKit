@@ -3,13 +3,17 @@ package com.georgejrdev.executors;
 import java.util.List;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
 import com.georgejrdev.utils.files.ManipulateJsonFile;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class ToDoExecutor {
     
     private String pathSave;
     private String os;
     private ManipulateJsonFile manipulateFile;
+    private static final Logger logger = AppLogger.getLogger();
 
     public ToDoExecutor(){
         setCorrectPath();
@@ -19,11 +23,13 @@ public class ToDoExecutor {
     public void createNewTask(String content){
         this.manipulateFile.addItemInJsonFile(content);
         showTasks();
+        logger.info("New task created - Content: "+content);
     }
 
     public void checkTask(int id, boolean newState){
         this.manipulateFile.updateItemInJsonFile(id, newState);
         showTasks();
+        logger.info("Task checked - ID: "+id + " New state: "+newState);
     }
 
     public void showTasks(){
@@ -47,6 +53,7 @@ public class ToDoExecutor {
     public void deleteTask(int id){
         this.manipulateFile.deleteItemInJsonFile(id);
         showTasks();
+        logger.info("Task deleted - ID: "+id);
     }
 
     private void setCorrectPath(){

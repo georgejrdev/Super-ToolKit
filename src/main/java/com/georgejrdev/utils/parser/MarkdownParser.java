@@ -4,12 +4,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.io.IOException;
+import java.util.logging.Logger;
+
 import com.georgejrdev.lib.reload.Parser;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class MarkdownParser implements Parser {
 
     private Path srcPathFile;
     private Path destPathFile;
+    private static final Logger logger = AppLogger.getLogger();
 
     public MarkdownParser(Path srcPathFile, Path destPathFile) {
         this.srcPathFile = srcPathFile;
@@ -30,6 +34,7 @@ public class MarkdownParser implements Parser {
         } 
         
         catch (IOException e) {
+            logger.severe("Failed to parse markdown file: " + e.getMessage() + " SRC Path- " + this.srcPathFile + " DEST Path- " + this.destPathFile);
             throw new RuntimeException("Failed to parse markdown file", e);
         }
     }

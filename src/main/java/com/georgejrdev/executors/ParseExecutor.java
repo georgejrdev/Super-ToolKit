@@ -5,9 +5,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.io.IOException;
+import java.util.logging.Logger;
+
 import com.georgejrdev.lib.reload.HotReload;
 import com.georgejrdev.lib.reload.Parser;
 import com.georgejrdev.utils.parser.MarkdownParser;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class ParseExecutor {
 
@@ -18,6 +21,7 @@ public class ParseExecutor {
     private Path srcFilePath;
     private Path destFilePath;
     private String htmlFileName;
+    private static final Logger logger = AppLogger.getLogger();
 
     public ParseExecutor(String srcFilePath) {
         this.HTTP_PORT = 8080;
@@ -30,6 +34,8 @@ public class ParseExecutor {
     }
 
     public void parseToHtml() {
+        logger.info("Converting markdown to html" + this.srcFilePath + " to " + this.destFilePath);
+
         if (!Files.exists(this.destFilePath)) {
             createFileIfNotExist(false);
         }
@@ -38,6 +44,8 @@ public class ParseExecutor {
     }
 
     public void parseToHtmlWithHotReload() {
+        logger.info("Converting markdown to html with hot reload" + this.srcFilePath + " to " + this.destFilePath);
+
         if (!Files.exists(this.destFilePath)) {
             createFileIfNotExist(true);
         }

@@ -4,8 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Configurator {
+
+    private static final Logger logger = AppLogger.getLogger();
 
     public static void configureGeminiApiKey() {
         System.out.println("Enter your Gemini API key:");
@@ -21,13 +24,16 @@ public class Configurator {
                 configureForWindows(apiKey);
             } else {
                 System.out.println("Unsupported operating system.");
+                logger.severe("Unsupported operating system.");
             }
         } catch (IOException | InterruptedException e) {
             System.err.println("Error configuring API key: " + e.getMessage());
+            logger.severe("Error configuring API key: " + e.getMessage());
         }
 
         System.out.println("Gemini API key configured.");
         System.out.println("Restart the terminal for the changes to take effect.");
+        logger.info("Gemini API key configured.");
         scanner.close();
     }
 

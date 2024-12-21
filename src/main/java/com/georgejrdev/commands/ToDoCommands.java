@@ -1,13 +1,18 @@
 package com.georgejrdev.commands;
 
+import java.util.logging.Logger;
+
 import com.georgejrdev.commands.interfaces.Commands;
 import com.georgejrdev.executors.ToDoExecutor;
 import com.georgejrdev.utils.exceptions.InvalidOptionCommand;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class ToDoCommands implements Commands{
+
+    private static final Logger logger = AppLogger.getLogger();
 
     public void run(String[] args){
 
@@ -18,11 +23,13 @@ public class ToDoCommands implements Commands{
         
         catch (UnexpectedNumberOfParameters e){
             System.out.println("Unexpected number of parameters");
+            logger.severe("Unexpected number of parameters on command " + args[0]);
             Helper.listCommands(args[0]);
             return;
         } 
 
         catch (InvalidOptionCommand e){
+            logger.severe("Invalid option " + args[1] + " on command " + args[0]);
             Helper.invalidOption(args[0], args[1]);
             return;
         }

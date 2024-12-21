@@ -8,23 +8,31 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.zip.*;
+import java.util.logging.Logger;
 
 import static com.georgejrdev.SuperToolKit.VERSION;
 
 public class Updater {
 
+    private static final Logger logger = AppLogger.getLogger();
+
     public static void update() {
         String latestVersion = getLatestVersion();
         
         if (!isVersionNewer(VERSION, latestVersion)){
+            System.out.println("");
             System.out.println("No updates available");
+            System.out.println("");
+            logger.info("No updates available");
             return;
         }
 
         final String OS = System.getProperty("os.name");
 
+        System.out.println("");
         System.out.println("New version available: " + latestVersion);
         System.out.println("Installing...");
+        System.out.println("");
 
         if (OS != null && OS.toLowerCase().contains("linux")) {
             linuxUpdate(latestVersion);
@@ -37,8 +45,10 @@ public class Updater {
         String latestVersion = getLatestVersion();
         
         if (isVersionNewer(VERSION, latestVersion)) {
+            System.out.println("");
             System.out.println("New version available: " + latestVersion);
             System.out.println("Use 'stk update' to update");
+            System.out.println("");
         }
     }
 
@@ -80,6 +90,7 @@ public class Updater {
             return "N/A";
         } catch (Exception e) {
             System.out.println("Error fetching latest version: " + e.getMessage());
+            logger.severe("Error fetching latest version: " + e.getMessage());
             return "N/A";
         }
     }
@@ -117,6 +128,7 @@ public class Updater {
             }
         } catch (IOException e) {
             System.out.println("Error downloading update: " + e.getMessage());
+            logger.severe("Error downloading update: " + e.getMessage());
             return;
         }
 
@@ -144,6 +156,7 @@ public class Updater {
             }
         } catch (IOException e) {
             System.out.println("Error extracting update: " + e.getMessage());
+            logger.severe("Error extracting update: " + e.getMessage());
             return;
         }
 
@@ -160,6 +173,7 @@ public class Updater {
             Files.move(jarFilePath, jarDestPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             System.out.println("Error replacing files: " + e.getMessage());
+            logger.severe("Error replacing files: " + e.getMessage());
             return;
         }
 
@@ -169,6 +183,7 @@ public class Updater {
             Files.delete(Paths.get(sourceDirPath));
         } catch (IOException e) {
             System.out.println("Error cleaning up: " + e.getMessage());
+            logger.severe("Error cleaning up: " + e.getMessage());
         }
     }
 
@@ -183,6 +198,7 @@ public class Updater {
             Files.deleteIfExists(Paths.get(batScript));
         } catch (IOException e) {
             System.out.println("Error deleting existing script: " + e.getMessage());
+            logger.severe("Error deleting existing script: " + e.getMessage());
             return;
         }
 
@@ -197,6 +213,7 @@ public class Updater {
             }
         } catch (IOException e) {
             System.out.println("Error downloading update: " + e.getMessage());
+            logger.severe("Error downloading update: " + e.getMessage());
             return;
         }
 
@@ -224,6 +241,7 @@ public class Updater {
             }
         } catch (IOException e) {
             System.out.println("Error extracting update: " + e.getMessage());
+            logger.severe("Error extracting update: " + e.getMessage());
             return;
         }
 
@@ -249,6 +267,7 @@ public class Updater {
             Files.deleteIfExists(Paths.get(saveDir));
         } catch (IOException e) {
             System.out.println("Error cleaning up: " + e.getMessage());
+            logger.severe("Error cleaning up: " + e.getMessage());
             return;
         }
 
@@ -258,6 +277,7 @@ public class Updater {
             System.exit(0);
         } catch (IOException e) {
             System.out.println("Error executing update script: " + e.getMessage());
+            logger.severe("Error executing update script: " + e.getMessage());
         }
     }
 
@@ -268,6 +288,7 @@ public class Updater {
             return jarFile.getParent();
         } catch (Exception e) {
             System.out.println("Error determining toolkit path: " + e.getMessage());
+            logger.severe("Error determining toolkit path: " + e.getMessage());
             return "";
         }
     }
