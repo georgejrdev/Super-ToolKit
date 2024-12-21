@@ -20,7 +20,7 @@ public class ToDoExecutor {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        this.manipulateFile = new ManipulateJsonFile(DIR_SAVE+"/ToDoSave.json");
+        this.manipulateFile = new ManipulateJsonFile(DIR_SAVE+File.separator+"ToDoSave.json");
     }
 
     public void createNewTask(String content){

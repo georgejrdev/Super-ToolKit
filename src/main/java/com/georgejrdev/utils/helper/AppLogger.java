@@ -2,6 +2,7 @@ package com.georgejrdev.utils.helper;
 
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
@@ -24,7 +25,7 @@ public class AppLogger {
         logger.setUseParentHandlers(false);
 
         try {;
-            FileHandler fileHandler = new FileHandler(PROGRAM_PATH+"\\app.log", true);
+            FileHandler fileHandler = new FileHandler(PROGRAM_PATH+ File.separator +"app.log", true);
             fileHandler.setFormatter(new SimpleFormatter());
             logger.addHandler(fileHandler);
 
