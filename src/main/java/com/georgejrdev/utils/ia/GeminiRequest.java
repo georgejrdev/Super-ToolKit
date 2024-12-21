@@ -17,7 +17,7 @@ public class GeminiRequest implements IARequest {
         }
 
         catch (AIKeyNotFound e){
-            String message = "AI Key not found. Create an environment variable named STK_GEMINI_API_KEY with the value of your gemini-1.5-flash API access key. It's free. Link: https://ai.google.dev/pricing?hl=pt-br#1_5flash";
+            String message = "AI Key not found. \nUse 'stk config' with the value of your gemini-1.5-flash API access key. \nIt's free. Link: https://ai.google.dev/pricing?hl=pt-br#1_5flash";
             return new IAResponse(false, message);
         }
 

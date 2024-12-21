@@ -39,6 +39,18 @@ public class Helper {
         add("stk commit [description] : Get commit message");
     }};
 
+    static private List<String> UPDATE_COMMANDS = new ArrayList<String>(){{
+        add("stk update : Get latest version");
+    }};
+
+    static private List<String> VERSION_COMMANDS = new ArrayList<String>(){{
+        add("stk version : Get current version");
+    }};
+
+    static private List<String> CONFIG_COMMANDS = new ArrayList<String>(){{
+        add("stk config : Configure Gemini API Key");
+    }};
+
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
@@ -46,6 +58,9 @@ public class Helper {
         put("parse", PARSE_COMMANDS);          
         put("convert", CONVERT_COMMANDS);
         put("commit", COMMIT_MESSAGE_COMMANDS);
+        put("update", UPDATE_COMMANDS);
+        put("version", VERSION_COMMANDS);
+        put("config", CONFIG_COMMANDS);
     }};
 
     static public void listCommands(){

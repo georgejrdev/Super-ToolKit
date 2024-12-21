@@ -38,6 +38,12 @@
 #### Get Commit Message
 - stk **commit** commit_description
 
+#### Utilities
+- stk **help** 
+- stk **version**
+- stk **update**
+- stk **config**
+
 <br>
 
 # How to install:

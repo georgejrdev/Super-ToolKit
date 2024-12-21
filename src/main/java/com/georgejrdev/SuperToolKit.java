@@ -5,6 +5,7 @@ import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
+import com.georgejrdev.utils.helper.Configurator;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.helper.Updater;
 
@@ -39,6 +40,10 @@ public class SuperToolKit {
 
             case "update":
                 Updater.update();
+                break;
+
+            case "config":
+                Configurator.configureGeminiApiKey();
                 break;
 
             case "translate":
