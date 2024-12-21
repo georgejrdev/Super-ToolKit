@@ -1,6 +1,7 @@
 package com.georgejrdev.utils.helper;
 
-import java.io.File;
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+
 import java.io.IOException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
@@ -22,9 +23,8 @@ public class AppLogger {
         logger = Logger.getLogger("MyAppLogger");
         logger.setUseParentHandlers(false);
 
-        try {
-            String logFilePath = getLogFilePath();
-            FileHandler fileHandler = new FileHandler(logFilePath, true);
+        try {;
+            FileHandler fileHandler = new FileHandler(PROGRAM_PATH+"\\app.log", true);
             fileHandler.setFormatter(new SimpleFormatter());
             logger.addHandler(fileHandler);
 
@@ -35,17 +35,6 @@ public class AppLogger {
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Error setting up logger: " + e.getMessage());
-        }
-    }
-
-    private static String getLogFilePath() {
-        try {
-            String jarPath = AppLogger.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-            File jarFile = new File(jarPath);
-            return jarFile.getParent() + "/application.log";
-        } catch (Exception e) {
-            System.out.println("Error determining log file path: " + e.getMessage());
-            return "application.log";
         }
     }
 

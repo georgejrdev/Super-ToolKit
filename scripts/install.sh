@@ -28,6 +28,7 @@ fi
 if [ -f "./stk.sh" ]; then
     mv "./stk.sh" "$path_file/"
     echo "Moved stk.sh to $path_file/"
+    chmod +x "$path_file/stk.sh"
 else
     echo "File stk.sh not found."
 fi

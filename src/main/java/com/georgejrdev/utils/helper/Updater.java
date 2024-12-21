@@ -10,7 +10,7 @@ import java.nio.file.StandardCopyOption;
 import java.util.zip.*;
 import java.util.logging.Logger;
 
-import static com.georgejrdev.SuperToolKit.VERSION;
+import static com.georgejrdev.DefaultValues.*;
 
 public class Updater {
 
@@ -54,7 +54,7 @@ public class Updater {
 
     private static String getLatestVersion() {
         try {
-            URL url = new URL("https://github.com/georgejrdev/Super-ToolKit");
+            URL url = new URL(LATEST_VERSION_URL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -113,7 +113,7 @@ public class Updater {
     }
 
     private static void linuxUpdate(String latestVersion) {
-        final String URL = "https://github.com/georgejrdev/Super-ToolKit/raw/main/build/linux" + latestVersion + ".zip";
+        final String URL = BASE_LINUX_URL + latestVersion + ".zip";
         String path = getSuperToolKitPath();
         String saveDir = path + File.separator + "linux" + latestVersion + ".zip";
 
@@ -188,7 +188,7 @@ public class Updater {
     }
 
     private static void windowsUpdate(String latestVersion) {
-        final String URL = "https://github.com/georgejrdev/Super-ToolKit/raw/main/build/windows" + latestVersion + ".zip";
+        final String URL = BASE_WINDOWS_URL + latestVersion + ".zip";
         String path = getSuperToolKitPath();
         String saveDir = path + File.separator + "windows" + latestVersion + ".zip";
 

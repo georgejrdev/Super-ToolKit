@@ -40,10 +40,10 @@ jobs:
           echo "Project version: $version"
           echo "version=$version" >> $GITHUB_ENV
       
-      - name: Update VERSION in SuperToolKit.java
+      - name: Update VERSION in DefaultValues.java
         run: |
-          sed -i "s/\"[0-9]\+\.[0-9]\+\.[0-9]\+\"/\"${{ env.version }}\"/" src/main/java/com/georgejrdev/SuperToolKit.java
-          echo "Updated VERSION in SuperToolKit.java to ${{ env.version }}"
+          sed -i "s/\"[0-9]\+\.[0-9]\+\.[0-9]\+\"/\"${{ env.version }}\"/" src/main/java/com/georgejrdev/DefaultValues.java
+          echo "Updated VERSION in DefaultValues.java to ${{ env.version }}"
           
       - name: Build with Maven
         run: mvn clean package
@@ -112,7 +112,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           if [ -n "$(git status --porcelain)" ]; then
-            git add src/main/java/com/georgejrdev/SuperToolKit.java README.md build/
+            git add src/main/java/com/georgejrdev/DefaultValues.java README.md build/
             git commit -m "Build - version: ${{ env.version }}"
             git push
           else

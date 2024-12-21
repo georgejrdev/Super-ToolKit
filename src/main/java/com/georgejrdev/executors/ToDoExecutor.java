@@ -2,22 +2,25 @@ package com.georgejrdev.executors;
 
 import java.util.List;
 import java.util.Map;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.files.ManipulateJsonFile;
 import com.georgejrdev.utils.helper.AppLogger;
+import static com.georgejrdev.DefaultValues.*;
 
 public class ToDoExecutor {
     
-    private String pathSave;
-    private String os;
     private ManipulateJsonFile manipulateFile;
     private static final Logger logger = AppLogger.getLogger();
 
     public ToDoExecutor(){
-        setCorrectPath();
-        this.manipulateFile = new ManipulateJsonFile(getPathSave());
+        File dir = new File(DIR_SAVE);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        this.manipulateFile = new ManipulateJsonFile(DIR_SAVE+"/ToDoSave.json");
     }
 
     public void createNewTask(String content){
@@ -56,18 +59,6 @@ public class ToDoExecutor {
         logger.info("Task deleted - ID: "+id);
     }
 
-    private void setCorrectPath(){
-        setOs(System.getProperty("os.name"));
-
-        if (getOs() != null && getOs().toLowerCase().contains("linux")){
-                setPathSave(System.getenv("HOME") + "/Super-ToolKit/save/ToDoSave.json");;
-                
-        } else {
-            String appData = System.getenv("APPDATA");
-            setPathSave(appData + "\\Super-ToolKit\\save\\ToDoSave.json");
-        }
-    } 
-
     private List<Map<String,Object>> orderTasks(List<Map<String,Object>> content){
         List<Map<String,Object>> orderContent = new ArrayList<>();
 
@@ -83,21 +74,5 @@ public class ToDoExecutor {
         }
 
         return orderContent;
-    }
-
-    private String getPathSave(){
-        return this.pathSave;
-    }
-
-    private void setPathSave(String pathSave){
-        this.pathSave = pathSave;
-    }
-
-    private String getOs(){
-        return this.os;
-    }
-
-    private void setOs(String os){
-        this.os = os;
     }
 }

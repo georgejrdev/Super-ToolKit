@@ -1,5 +1,9 @@
 package com.georgejrdev;
 
+import static com.georgejrdev.DefaultValues.*;
+
+import java.io.File;
+
 import com.georgejrdev.commands.ConvertCommands;
 import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
@@ -11,9 +15,12 @@ import com.georgejrdev.utils.helper.Updater;
 
 public class SuperToolKit {
 
-    static public final String VERSION = "4.0.0";
-
     public static void main(String[] args){
+
+        File dir = new File(DIR_SAVE);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
 
         Updater.updateIsAvailable();
 
