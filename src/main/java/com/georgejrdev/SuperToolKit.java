@@ -11,7 +11,7 @@ import com.georgejrdev.utils.helper.Updater;
 
 public class SuperToolKit {
 
-    static public final String VERSION = "3.3.1";
+    static public final String VERSION = "4.0.0";
 
     public static void main(String[] args){
 
