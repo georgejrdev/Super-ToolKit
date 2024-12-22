@@ -14,6 +14,7 @@ public class ParseCommands implements Commands{
     
     private static final Logger logger = AppLogger.getLogger();
 
+    @Override
     public void run(String[] args){
         
         try {

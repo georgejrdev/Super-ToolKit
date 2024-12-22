@@ -27,7 +27,9 @@ public class Updater {
                 logger.info("No updates available");
                 return;
             }
-        }
+        } 
+
+        logger.info("Start update");
 
         final String OS = System.getProperty("os.name");
 
@@ -200,7 +202,10 @@ public class Updater {
         } catch (IOException e) {
             System.out.println("Error cleaning up: " + e.getMessage());
             logger.severe("Error cleaning up: " + e.getMessage());
+            return;
         }
+
+        logger.info("Updated SuperToolKit to version " + latestVersion);
     }
 
     private static void windowsUpdate(String latestVersion) {
@@ -294,7 +299,10 @@ public class Updater {
         } catch (IOException e) {
             System.out.println("Error executing update script: " + e.getMessage());
             logger.severe("Error executing update script: " + e.getMessage());
+            return;
         }
+
+        logger.info("Updated SuperToolKit to version " + latestVersion);
     }
 
     private static String getSuperToolKitPath() {

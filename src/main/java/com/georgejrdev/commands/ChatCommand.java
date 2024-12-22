@@ -3,14 +3,14 @@ package com.georgejrdev.commands;
 import java.util.logging.Logger;
 
 import com.georgejrdev.commands.interfaces.Commands;
-import com.georgejrdev.executors.GetCommitMessageExecutor;
+import com.georgejrdev.executors.ChatExecutor;
 import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
-import com.georgejrdev.utils.validations.OptionsValidation;
+import com.georgejrdev.utils.helper.AppLogger;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.ia.GeminiRequest;
-import com.georgejrdev.utils.helper.AppLogger;
+import com.georgejrdev.utils.validations.OptionsValidation;
 
-public class GetCommitMessageCommand implements Commands{
+public class ChatCommand implements Commands{
     
     private static final Logger logger = AppLogger.getLogger();
 
@@ -36,8 +36,8 @@ public class GetCommitMessageCommand implements Commands{
             return;
         }
 
-        final String COMMIT_DESCRIPTION = args[1];
-        GetCommitMessageExecutor getCommitMessageExecutor = new GetCommitMessageExecutor(new GeminiRequest());
-        getCommitMessageExecutor.getCommitMessage(COMMIT_DESCRIPTION);
+        final String ANSWER = args[1];
+        ChatExecutor chatExecutor = new ChatExecutor(new GeminiRequest());
+        chatExecutor.getIAResponse(ANSWER);
     }
 }

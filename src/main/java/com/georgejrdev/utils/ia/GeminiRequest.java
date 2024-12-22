@@ -14,6 +14,7 @@ public class GeminiRequest implements IARequest {
 
     private static final Logger logger = AppLogger.getLogger();
 
+    @Override
     public IAResponse request(String prompt){
 
         try {

@@ -4,6 +4,7 @@ import static com.georgejrdev.DefaultValues.*;
 
 import java.io.File;
 
+import com.georgejrdev.commands.ChatCommand;
 import com.georgejrdev.commands.ConvertCommands;
 import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
@@ -80,6 +81,11 @@ public class SuperToolKit {
             case "commit":
                 GetCommitMessageCommand getCommitMessageCommand = new GetCommitMessageCommand();
                 getCommitMessageCommand.run(args);
+                break;
+
+            case "chat":
+                ChatCommand chatCommand = new ChatCommand();
+                chatCommand.run(args);
                 break;
 
             default:

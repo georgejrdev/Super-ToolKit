@@ -51,6 +51,10 @@ public class Helper {
         add("stk config : Configure Gemini API Key");
     }};
 
+    static private List<String> CHAT_COMMANDS = new ArrayList<String>(){{
+        add("stk chat [message] : Send message to Gemini");
+    }};
+
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
@@ -61,6 +65,7 @@ public class Helper {
         put("update", UPDATE_COMMANDS);
         put("version", VERSION_COMMANDS);
         put("config", CONFIG_COMMANDS);
+        put("chat", CHAT_COMMANDS);
     }};
 
     static public void listCommands(){
