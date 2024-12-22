@@ -46,7 +46,11 @@ public class SuperToolKit {
                 break;
 
             case "update":
-                Updater.update();
+                if (args.length == 2 && args[1].equals("force")){
+                    Updater.update(true);
+                } else {
+                    Updater.update(false);
+                }
                 break;
 
             case "config":

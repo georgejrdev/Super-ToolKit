@@ -7,7 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.nio.file.attribute.PosixFilePermissions;
 import java.util.zip.*;
 import java.util.logging.Logger;
 
@@ -17,15 +16,17 @@ public class Updater {
 
     private static final Logger logger = AppLogger.getLogger();
 
-    public static void update() {
+    public static void update(boolean forceUpdate) {
         String latestVersion = getLatestVersion();
-        
-        if (!isVersionNewer(VERSION, latestVersion)){
-            System.out.println("");
-            System.out.println("No updates available");
-            System.out.println("");
-            logger.info("No updates available");
-            return;
+
+        if (!forceUpdate){
+            if (!isVersionNewer(VERSION, latestVersion)){
+                System.out.println("");
+                System.out.println("No updates available");
+                System.out.println("");
+                logger.info("No updates available");
+                return;
+            }
         }
 
         final String OS = System.getProperty("os.name");
