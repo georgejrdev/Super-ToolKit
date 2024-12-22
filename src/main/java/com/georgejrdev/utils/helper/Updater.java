@@ -7,6 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.PosixFilePermissions;
 import java.util.zip.*;
 import java.util.logging.Logger;
 
@@ -174,6 +175,20 @@ public class Updater {
         } catch (IOException e) {
             System.out.println("Error replacing files: " + e.getMessage());
             logger.severe("Error replacing files: " + e.getMessage());
+            return;
+        }
+
+        String chmodScript = path + File.separator + "chmod_script.sh";
+        String chmodContent = "#!/bin/bash\n" +
+                "chmod +x \"" + stkDestPath.toString() + "\"\n" +
+                "rm -- \"$0\"\n";
+        
+        try {
+            Files.write(Paths.get(chmodScript), chmodContent.getBytes());
+            Runtime.getRuntime().exec("bash " + chmodScript);
+        } catch (IOException e) {
+            System.out.println("Error executing chmod script: " + e.getMessage());
+            logger.severe("Error executing chmod script: " + e.getMessage());
             return;
         }
 

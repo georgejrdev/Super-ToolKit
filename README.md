@@ -6,7 +6,7 @@
 
 ![License](https://img.shields.io/github/license/georgejrdev/Super-ToolKit.svg)
 ![Version](https://img.shields.io/badge/version-4.0.2-53918E.svg)
-![Windows](https://img.shields.io/badge/made%20for-linux-AD6845.svg)
+![Windows](https://img.shields.io/badge/made%20for-linux%20/%20windows-AD6845.svg)
 
 </div>
 

@@ -1,6 +1,6 @@
 @echo off
 
-set "FILE_STK=C:\Program Files\Super-ToolKit"
+set "FILE_STK=%USERPROFILE%\Super-ToolKit"
 
 set "CURRENT_DIR=%~dp0"
 set "CURRENT_DIR=%CURRENT_DIR:~0,-1%"
@@ -39,7 +39,12 @@ if errorlevel 1 (
     exit /b
 )
 
-setx FILE_STK "C:\Program Files\Super-ToolKit"
+setx FILE_STK %FILE_STK%
+if errorlevel 1 (
+    echo Failed to set FILE_STK environment variable. Check permissions.
+    pause
+    exit /b
+)
 
 echo "Installed successfully, restart the terminal"
 pause
