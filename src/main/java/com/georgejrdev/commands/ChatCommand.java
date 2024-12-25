@@ -1,5 +1,9 @@
 package com.georgejrdev.commands;
 
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.logging.Logger;
 
 import com.georgejrdev.commands.interfaces.Commands;
@@ -17,21 +21,35 @@ public class ChatCommand implements Commands{
     @Override
     public void run(String[] args){
 
+        logger.info("Executing command " + args[0] + ". All arguments: " + args.toString());
+
         try {
             OptionsValidation.expectedQuantityOfParameters(args, 2);
             OptionsValidation.parameterIsAvailable(args[1]);
         }
 
         catch (UnexpectedNumberOfParameters e){
-            System.out.println("Unexpected number of parameters");
-            logger.severe("Unexpected number of parameters on command " + args[0]);
+            System.out.println("Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH);
+
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.warning("Unexpected number of parameters on command " + args[0]);
+            logger.fine("Stack trace for the error:\n" + sw.toString());
+
             Helper.listCommands(args[0]);
             return;
         }
 
         catch (IllegalArgumentException e){
-            System.out.println("Argument " + args[1] + " is not valid");
-            logger.severe("Argument " + args[1] + " is not valid on command " + args[0]);
+            System.out.println("Argument " + args[1] + " is not valid. You can see more details in the log file located at " + PROGRAM_PATH);
+
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.warning("Argument " + args[1] + " is not valid on command " + args[0]);
+            logger.fine("Stack trace for the error:\n" + sw.toString());
+
             Helper.listCommands(args[0]);
             return;
         }

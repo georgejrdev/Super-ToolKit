@@ -1,5 +1,9 @@
 package com.georgejrdev.commands;
 
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.logging.Logger;
 
 import com.georgejrdev.commands.interfaces.Commands;
@@ -16,6 +20,8 @@ public class TranslateCommands implements Commands{
     
     @Override
     public void run(String[] args){
+
+        logger.info("Executing command " + args[0] + ". All arguments: " + args.toString());
         
         try {
             OptionsValidation.expectedQuantityOfParameters(args, 3);
@@ -24,15 +30,27 @@ public class TranslateCommands implements Commands{
         } 
         
         catch (UnexpectedNumberOfParameters e){
-            System.out.println("Unexpected number of parameters");
-            logger.severe("Unexpected number of parameters on command " + args[0]);
+            System.out.println("Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH);
+
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.warning("Unexpected number of parameters on command " + args[0]);
+            logger.fine("Stack trace for the error:\n" + sw.toString());
+
             Helper.listCommands(args[0]);
             return;
         }
 
         catch (IllegalArgumentException e){
-            System.out.println("Arguments " + args[1] + " or " + args[2] + " are not valid");
-            logger.severe("Arguments " + args[1] + " or " + args[2] + " are not valid on command " + args[0]);
+            System.out.println("Arguments " + args[1] + " or " + args[2] + " are not valid. You can see more details in the log file located at " + PROGRAM_PATH);
+
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.warning("Arguments " + args[1] + " or " + args[2] + " are not valid on command " + args[0]);
+            logger.fine("Stack trace for the error:\n" + sw.toString());
+
             Helper.listCommands(args[0]);
             return;
         }

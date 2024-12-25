@@ -43,7 +43,6 @@ public class ManipulateJsonFile {
                 logger.info("Json file created at path: " + this.path);
 
             } catch (IOException e) {
-                e.printStackTrace();
                 logger.severe("Error creating new json file at path: " + this.path + " - " + e.getMessage());
             }
 

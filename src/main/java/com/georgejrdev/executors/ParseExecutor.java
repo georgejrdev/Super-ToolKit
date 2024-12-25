@@ -5,6 +5,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.logging.Logger;
 
 import com.georgejrdev.lib.reload.HotReload;
@@ -67,9 +69,17 @@ public class ParseExecutor {
             if (reloadScript) {
                 Files.write(this.destFilePath, initialContent.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
             }
+
+            logger.info("Created destination file " + this.destFilePath + ". Reload script: " + reloadScript);
         } 
         
         catch (IOException e) {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            logger.warning("Failed to create destination file");
+            logger.fine("Stack trace for the error:\n" + sw.toString());
+
             throw new RuntimeException("Failed to create destination file", e);
         }
     }
