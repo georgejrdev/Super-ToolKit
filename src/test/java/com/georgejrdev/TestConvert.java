@@ -46,7 +46,7 @@ public class TestConvert {
         String originalVideoPath = "./src/test/resources/video.mp4";
         String convertVideoPath = "./src/test/resources/video.mov";
 
-        convertExecutor.convertVideo(originalVideoPath, "mov");
+        convertExecutor.convertVideo(originalVideoPath, ".mov");
 
         Path resultPathFile = Paths.get(convertVideoPath);
         boolean fileExist = Files.exists(resultPathFile);
@@ -66,7 +66,7 @@ public class TestConvert {
         String originalAudioPath = "./src/test/resources/audio.mp3";
         String convertAudioPath = "./src/test/resources/audio.wav";
 
-        convertExecutor.convertAudio(originalAudioPath, "wav");
+        convertExecutor.convertAudio(originalAudioPath, ".wav");
 
         Path resultPathFile = Paths.get(convertAudioPath);
         boolean fileExist = Files.exists(resultPathFile);
