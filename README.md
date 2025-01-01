@@ -13,42 +13,18 @@
 <br>
 <br>
 
-# Commands
+# Functions:
 
-#### Convert Files:
-- stk convert **image** path/to/file newFormat
-- stk convert **video** path/to/file newFormat
-- stk convert **audio** path/to/file newFormat
+- Chat (with I.A.)
+- Parse markdown to html
+- Convert files
+- Translate
+- ToDo
+- Get a standardized commit message
+- QRCode generator
+- Ram viewer
 
-#### Parse Markdown to HTML
-- stk **parse** path/to/file
-- stk **parse** ***watch*** path/to/file 
-- // The watch option activates the live reload
-
-#### ToDo
-- stk **todo** add "text"
-- stk **todo** remove id
-- stk **todo** list 
-- stk **todo** check id
-- stk **todo** uncheck id
-
-#### Translate
-- stk **translate** text target_language
-
-#### Get Commit Message
-- stk **commit** commit_description
-
-#### Generate QRCode
-- stk **qrcode** url path/to/save
-
-#### Ram Viewer
-- stk **ramviewer**
-
-#### Utilities
-- stk **help** 
-- stk **version**
-- stk **update**
-- stk **config**
+[Click here to see all commands and their syntax](./docs/Commands.md)
 
 <br>
 
