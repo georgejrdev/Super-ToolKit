@@ -1,7 +1,5 @@
 package com.georgejrdev.executors;
 
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
-
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -11,6 +9,7 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class ConvertExecutor {
 
