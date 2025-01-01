@@ -1,13 +1,13 @@
 package com.georgejrdev.utils.helper;
 
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
+
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class AppLogger {
     

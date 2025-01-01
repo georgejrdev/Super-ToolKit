@@ -1,7 +1,5 @@
 package com.georgejrdev.commands;
 
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.logging.Logger;
@@ -13,6 +11,7 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
 import com.georgejrdev.utils.helper.AppLogger;
+import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class ToDoCommands implements Commands{
 

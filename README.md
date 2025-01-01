@@ -38,6 +38,9 @@
 #### Get Commit Message
 - stk **commit** commit_description
 
+#### Generate QRCode
+- stk **qrcide** url path/to/save
+
 #### Utilities
 - stk **help** 
 - stk **version**

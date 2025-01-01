@@ -5,7 +5,7 @@
 
     <groupId>com.georgejrdev</groupId>
     <artifactId>toolkit-dev</artifactId>
-    <version>4.1.1</version>
+    <version>4.2.0</version>
 
     <build>
         <plugins>
@@ -107,5 +107,18 @@
             <artifactId>json</artifactId>
             <version>20230618</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.5.1</version>
+        </dependency>
+
     </dependencies>
 </project>

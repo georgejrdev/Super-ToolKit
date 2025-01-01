@@ -9,6 +9,7 @@ import com.georgejrdev.commands.ChatCommand;
 import com.georgejrdev.commands.ConvertCommands;
 import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
+import com.georgejrdev.commands.QRCodeGeneratorCommand;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
 import com.georgejrdev.utils.helper.AppLogger;
@@ -90,6 +91,11 @@ public class SuperToolKit {
             case "chat":
                 ChatCommand chatCommand = new ChatCommand();
                 chatCommand.run(args);
+                break;
+
+            case "qrcode":
+                QRCodeGeneratorCommand qrCodeGeneratorCommand = new QRCodeGeneratorCommand();
+                qrCodeGeneratorCommand.run(args);
                 break;
 
             default:

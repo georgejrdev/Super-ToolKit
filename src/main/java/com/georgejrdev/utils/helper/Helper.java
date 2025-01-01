@@ -55,6 +55,10 @@ public class Helper {
         add("stk chat [message] : Send message to Gemini");
     }};
 
+    static private List<String> QRCODE_COMMANDS = new ArrayList<String>(){{
+        add("stk qrcode [url] [path to save]: Generate QRCode");
+    }};
+
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
@@ -66,6 +70,7 @@ public class Helper {
         put("version", VERSION_COMMANDS);
         put("config", CONFIG_COMMANDS);
         put("chat", CHAT_COMMANDS);
+        put("qrcode", QRCODE_COMMANDS);
     }};
 
     static public void listCommands(){
