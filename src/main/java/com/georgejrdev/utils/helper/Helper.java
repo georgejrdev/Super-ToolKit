@@ -59,23 +59,29 @@ public class Helper {
         add("stk qrcode [url] [path to save]: Generate QRCode");
     }};
 
-    static private List<String> RAMVIEWER_COMMANDS = new ArrayList<String>(){{
+    static private List<String> RAM_VIEWER_COMMANDS = new ArrayList<String>(){{
         add("stk ramviewer : Start RAMViewer");
+    }};
+
+    static private List<String> CHANGE_lOG_COMMANDS = new ArrayList<String>(){{
+        add("stk changelog : View change log of the last version");
+        add("stk changelog all : View change log of all versions");
     }};
 
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
+        put("version", VERSION_COMMANDS);
+        put("update", UPDATE_COMMANDS);
+        put("config", CONFIG_COMMANDS);
+        put("changelog", CHANGE_lOG_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
         put("todo", TODO_COMMANDS);
         put("parse", PARSE_COMMANDS);          
         put("convert", CONVERT_COMMANDS);
         put("commit", COMMIT_MESSAGE_COMMANDS);
-        put("update", UPDATE_COMMANDS);
-        put("version", VERSION_COMMANDS);
-        put("config", CONFIG_COMMANDS);
         put("chat", CHAT_COMMANDS);
         put("qrcode", QRCODE_COMMANDS);
-        put("ramviewer", RAMVIEWER_COMMANDS);
+        put("ramviewer", RAM_VIEWER_COMMANDS);
     }};
 
     static public void listCommands(){

@@ -13,6 +13,7 @@ import com.georgejrdev.commands.RamViewerCommand;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
 import com.georgejrdev.utils.helper.AppLogger;
+import com.georgejrdev.utils.helper.ChangeLog;
 import com.georgejrdev.utils.helper.Configurator;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.helper.Updater;
@@ -63,6 +64,15 @@ public class SuperToolKit {
             case "config":
                 Configurator.configureGeminiApiKey();
                 break;
+
+            case "changelog":
+                if (args.length == 2 && args[1].equals("all")) {
+                    ChangeLog.showChangeLog(true);
+                    break;
+                } else {
+                    ChangeLog.showChangeLog(false);
+                    break;
+                }
 
             case "translate":
                 TranslateCommands translateCommands = new TranslateCommands();
