@@ -1,8 +1,7 @@
 package com.georgejrdev;
 
-import static com.georgejrdev.DefaultValues.*;
-
 import java.io.File;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 import com.georgejrdev.commands.ChatCommand;
@@ -17,6 +16,7 @@ import com.georgejrdev.utils.helper.AppLogger;
 import com.georgejrdev.utils.helper.Configurator;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.helper.Updater;
+import static com.georgejrdev.DefaultValues.*;
 
 public class SuperToolKit {
 
@@ -29,7 +29,7 @@ public class SuperToolKit {
 
         Updater.updateIsAvailable();
         final Logger logger = AppLogger.getLogger();
-        logger.info("Call program. Params: " + args.toString());
+        logger.info("Call program. Params: " + Arrays.toString(args));
 
         if (args.length == 0){
             Helper.listCommands();
@@ -106,7 +106,7 @@ public class SuperToolKit {
 
             default:
                 Helper.nonExistentCommand(command);
-                logger.warning("Non existent command: " + command + ". All args:" + args.toString());
+                logger.warning("Non existent command: " + command + ". All args:" + Arrays.toString(args));
                 break;
         }
     }

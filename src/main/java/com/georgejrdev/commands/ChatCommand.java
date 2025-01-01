@@ -2,6 +2,7 @@ package com.georgejrdev.commands;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 import com.georgejrdev.commands.interfaces.Commands;
@@ -20,7 +21,7 @@ public class ChatCommand implements Commands{
     @Override
     public void run(String[] args){
 
-        logger.info("Executing command " + args[0] + ". All arguments: " + args.toString());
+        logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
 
         try {
             OptionsValidation.expectedQuantityOfParameters(args, 2);
