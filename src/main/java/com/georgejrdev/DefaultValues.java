@@ -2,7 +2,7 @@ package com.georgejrdev;
 
 public class DefaultValues {
     
-    public static final String VERSION = "4.3.0";
+    public static final String VERSION = "4.3.1";
     public static final String LATEST_VERSION_URL = "https://github.com/georgejrdev/Super-ToolKit";
     public static final String BASE_LINUX_URL = "https://github.com/georgejrdev/Super-ToolKit/raw/main/build/linux";
     public static final String BASE_WINDOWS_URL = "https://github.com/georgejrdev/Super-ToolKit/raw/main/build/windows";
