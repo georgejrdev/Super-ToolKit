@@ -59,6 +59,10 @@ public class Helper {
         add("stk qrcode [url] [path to save]: Generate QRCode");
     }};
 
+    static private List<String> RAMVIEWER_COMMANDS = new ArrayList<String>(){{
+        add("stk ramviewer : Start RAMViewer");
+    }};
+
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
         put("translate", TRANSLATE_COMMANDS);
@@ -71,6 +75,7 @@ public class Helper {
         put("config", CONFIG_COMMANDS);
         put("chat", CHAT_COMMANDS);
         put("qrcode", QRCODE_COMMANDS);
+        put("ramviewer", RAMVIEWER_COMMANDS);
     }};
 
     static public void listCommands(){

@@ -41,6 +41,9 @@
 #### Generate QRCode
 - stk **qrcode** url path/to/save
 
+#### Ram Viewer
+- stk **ramviewer**
+
 #### Utilities
 - stk **help** 
 - stk **version**

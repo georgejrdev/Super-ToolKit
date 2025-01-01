@@ -10,6 +10,7 @@ import com.georgejrdev.commands.ConvertCommands;
 import com.georgejrdev.commands.GetCommitMessageCommand;
 import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.commands.QRCodeGeneratorCommand;
+import com.georgejrdev.commands.RamViewerCommand;
 import com.georgejrdev.commands.ToDoCommands;
 import com.georgejrdev.commands.TranslateCommands;
 import com.georgejrdev.utils.helper.AppLogger;
@@ -48,7 +49,7 @@ public class SuperToolKit {
                 break;
             
             case "version":
-                System.out.println("Current version: v" + VERSION);
+                System.out.println("Current version: " + VERSION);
                 break;
 
             case "update":
@@ -96,6 +97,11 @@ public class SuperToolKit {
             case "qrcode":
                 QRCodeGeneratorCommand qrCodeGeneratorCommand = new QRCodeGeneratorCommand();
                 qrCodeGeneratorCommand.run(args);
+                break;
+            
+            case "ramviewer":
+                RamViewerCommand ramViewerCommand = new RamViewerCommand();
+                ramViewerCommand.run(args);
                 break;
 
             default:
