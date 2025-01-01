@@ -23,15 +23,15 @@ public class GetCommitMessageExecutor {
 
         IAResponse response = requestIA.request(FULL_IA_PROMPT);
 
-        if (response.isSuccess()) {
+        if (response.success()) {
             System.out.println(response.getContent());
             logger.info("Success! Description: " +description+ " Response commit message: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
 
         } else {
             System.out.println(response.getContent());
             logger.severe("Error! Description: " +description+ " Response message: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
         }
     }
 }

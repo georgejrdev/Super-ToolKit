@@ -20,15 +20,15 @@ public class ChatExecutor {
 
         IAResponse response = requestIA.request(answer);
 
-        if (response.isSuccess()) {
+        if (response.success()) {
             System.out.println(response.getContent());
             logger.info("Success! Answer: " +answer+ " Response: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
 
         } else {
             System.out.println(response.getContent());
             logger.severe("Error! Answer: " +answer+ " Response: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
         }
     }
 }

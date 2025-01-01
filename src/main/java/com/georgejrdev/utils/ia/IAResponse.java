@@ -10,7 +10,7 @@ public class IAResponse {
         this.content = content;
     }
 
-    public boolean isSuccess() {
+    public boolean success() {
         return success;
     }
 

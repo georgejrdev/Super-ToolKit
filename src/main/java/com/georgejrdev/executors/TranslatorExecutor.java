@@ -23,15 +23,15 @@ public class TranslatorExecutor {
 
         IAResponse response = request.request(PROMPT);
 
-        if (response.isSuccess()){
+        if (response.success()){
             System.out.println(response.getContent());
             logger.info("Success! Text: "+text+" Language: "+language+" Response: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
             
         } else {
             System.out.println(response.getContent());
             logger.severe("Error! Text: "+text+" Language: "+language+" Response: "+response.getContent());
-            return response.isSuccess();
+            return response.success();
         }
     }
 }
