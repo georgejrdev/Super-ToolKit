@@ -6,4 +6,4 @@ else
     args=("$@")
 fi
 
-java -jar "$FILE_TKD" "${args[@]}"
+java -jar "$FILE_STK" "${args[@]}"

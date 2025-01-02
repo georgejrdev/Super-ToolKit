@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path_file="$HOME/Super-ToolKit"
-file_tkd="$path_file/SuperToolKit.jar"
+file_stk="$path_file/SuperToolKit.jar"
 path_save="$HOME/Super-ToolKit/save"
 
 if [ ! -d "$path_file" ]; then
@@ -39,7 +39,7 @@ case "$SHELL" in
             echo 'export PATH="$PATH:'"$path_file"'"' >> ~/.bashrc
             echo "Updated PATH in .bashrc"
         fi
-        echo "export FILE_TKD=\"$file_tkd\"" >> ~/.bashrc
+        echo "export FILE_STK=\"$file_stk\"" >> ~/.bashrc
         echo "alias stk='$path_file/stk.sh'" >> ~/.bashrc
         source ~/.bashrc
         echo "Bash configuration updated."
@@ -49,7 +49,7 @@ case "$SHELL" in
             echo 'export PATH="$PATH:'"$path_file"'"' >> ~/.zshrc
             echo "Updated PATH in .zshrc"
         fi
-        echo "export FILE_TKD=\"$file_tkd\"" >> ~/.zshrc
+        echo "export FILE_STK=\"$file_stk\"" >> ~/.zshrc
         echo "alias stk='$path_file/stk.sh'" >> ~/.zshrc
         source ~/.zshrc
         echo "Zsh configuration updated."
@@ -59,7 +59,7 @@ case "$SHELL" in
             echo 'export PATH="$PATH:'"$path_file"'"' >> ~/.profile
             echo "Updated PATH in .profile"
         fi
-        echo "export FILE_TKD=\"$file_tkd\"" >> ~/.profile
+        echo "export FILE_STK=\"$file_stk\"" >> ~/.profile
         echo "alias stk='$path_file/stk.sh'" >> ~/.profile
         source ~/.profile
         echo "Profile configuration updated."
