@@ -7,15 +7,13 @@ import java.util.logging.Logger;
 
 import com.georgejrdev.commands.interfaces.Commands;
 import com.georgejrdev.executors.ChatExecutor;
-import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
+import com.georgejrdev.utils.exceptions.*;
 import com.georgejrdev.utils.helper.AppLogger;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.ia.GeminiRequest;
 import com.georgejrdev.utils.validations.OptionsValidation;
 
-import static com.georgejrdev.DefaultValues.ANSI_RED;
-import static com.georgejrdev.DefaultValues.ANSI_RESET;
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+import static com.georgejrdev.DefaultValues.*;
 
 public class ChatCommand implements Commands{
     

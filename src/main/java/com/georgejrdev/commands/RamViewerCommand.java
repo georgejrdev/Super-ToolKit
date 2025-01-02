@@ -1,9 +1,5 @@
 package com.georgejrdev.commands;
 
-import static com.georgejrdev.DefaultValues.ANSI_RED;
-import static com.georgejrdev.DefaultValues.ANSI_RESET;
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
@@ -15,6 +11,8 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.AppLogger;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
+
+import static com.georgejrdev.DefaultValues.*;
 
 public class RamViewerCommand implements Commands{
     

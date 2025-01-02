@@ -5,10 +5,8 @@ import java.lang.management.ManagementFactory;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
-import static com.georgejrdev.DefaultValues.ANSI_CYAN;
-import static com.georgejrdev.DefaultValues.ANSI_GREEN;
-import static com.georgejrdev.DefaultValues.ANSI_RED;
-import static com.georgejrdev.DefaultValues.ANSI_RESET;
+
+import static com.georgejrdev.DefaultValues.*;
 
 public class RamViewerExecutor {
 

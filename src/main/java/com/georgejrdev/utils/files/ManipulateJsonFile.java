@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import com.georgejrdev.utils.helper.AppLogger;;
+import com.georgejrdev.utils.helper.AppLogger;
 
 public class ManipulateJsonFile {
     

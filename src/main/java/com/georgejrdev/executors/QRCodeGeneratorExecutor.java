@@ -16,9 +16,7 @@ import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
 
-import static com.georgejrdev.DefaultValues.ANSI_RED;
-import static com.georgejrdev.DefaultValues.ANSI_RESET;
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+import static com.georgejrdev.DefaultValues.*;
 
 public class QRCodeGeneratorExecutor {
 

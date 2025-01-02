@@ -13,9 +13,7 @@ import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.ia.GeminiRequest;
 import com.georgejrdev.utils.helper.AppLogger;
 
-import static com.georgejrdev.DefaultValues.ANSI_RED;
-import static com.georgejrdev.DefaultValues.ANSI_RESET;
-import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
+import static com.georgejrdev.DefaultValues.*;
 
 public class GetCommitMessageCommand implements Commands{
     
