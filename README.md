@@ -39,3 +39,5 @@
 
 - Extract .zip file
 - Run Install file with permission to execute
+
+[Don't have administrator permissions? Install manually by clicking here.](./docs/ManualInstallation.md)
