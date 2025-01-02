@@ -25,8 +25,8 @@ public class ToDoCommands implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
 
         try{
-            OptionsValidation.expectedQuantityOfParameters(args, 2, 3);
-            OptionsValidation.optionIsAvailable(args[0],args[1]);
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{2,3});
+            OptionsValidation.optionIsAvailable(args[0], new String[]{args[1]});
         }
         
         catch (UnexpectedNumberOfParameters e){

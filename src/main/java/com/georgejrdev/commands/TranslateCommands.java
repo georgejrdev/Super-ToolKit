@@ -25,9 +25,8 @@ public class TranslateCommands implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
         
         try {
-            OptionsValidation.expectedQuantityOfParameters(args, 3);
-            OptionsValidation.parameterIsAvailable(args[1]);
-            OptionsValidation.parameterIsAvailable(args[2]);
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{3});
+            OptionsValidation.parameterIsAvailable(new String[]{args[1], args[2]});
         } 
         
         catch (UnexpectedNumberOfParameters e){

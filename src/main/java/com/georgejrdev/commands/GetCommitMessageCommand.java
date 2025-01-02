@@ -25,8 +25,8 @@ public class GetCommitMessageCommand implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
 
         try {
-            OptionsValidation.expectedQuantityOfParameters(args, 2);
-            OptionsValidation.parameterIsAvailable(args[1]);
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{2});
+            OptionsValidation.parameterIsAvailable(new String[]{args[1]});
         }
 
         catch (UnexpectedNumberOfParameters e){

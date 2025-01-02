@@ -25,10 +25,9 @@ public class ConvertCommands implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
 
         try{
-            OptionsValidation.expectedQuantityOfParameters(args, 4);
-            OptionsValidation.optionIsAvailable(args[0], args[1]);
-            OptionsValidation.parameterIsAvailable(args[2]);
-            OptionsValidation.parameterIsAvailable(args[3]);
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{4});
+            OptionsValidation.optionIsAvailable(args[0], new String[]{args[1]});
+            OptionsValidation.parameterIsAvailable(new String[]{args[2], args[3]});
         }
 
         catch (UnexpectedNumberOfParameters e){

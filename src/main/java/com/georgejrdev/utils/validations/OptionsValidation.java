@@ -35,45 +35,55 @@ public class OptionsValidation {
         put("convert", CONVERT_OPTIONS);
     }};
 
-    static public void optionIsAvailable(String command, String option) throws InvalidOptionCommand{
+    static public void optionIsAvailable(String command, String[] options) throws InvalidOptionCommand{
+        
         command = command.toLowerCase();
-        option = option.toLowerCase();
+        
+        for (String option : options){
+            option = option.toLowerCase();
 
-        if (AVAILABLE_OPTIONS.get(command) == null) {
-            throw new InvalidOptionCommand();
-        }
+            if (AVAILABLE_OPTIONS.get(command) == null) {
+                throw new InvalidOptionCommand();
+            }
 
-        if (option == null){
-            throw new InvalidOptionCommand();
-        }
+            if (option == null){
+                throw new InvalidOptionCommand();
+            }
 
-        if(!AVAILABLE_OPTIONS.get(command).contains(option)){
-            throw new InvalidOptionCommand();
+            if(!AVAILABLE_OPTIONS.get(command).contains(option)){
+                throw new InvalidOptionCommand();
+            }
         }
     }
 
-    static public void expectedQuantityOfParameters(String args[], int quantity) throws UnexpectedNumberOfParameters{
-        if (args.length != quantity){
+    static public void expectedQuantityOfParameters(String args[], int[] quantity) throws UnexpectedNumberOfParameters{
+
+        boolean valid = false;
+
+        for (int i = 0; i < quantity.length; i++){
+            if (args.length == quantity[i]){
+                valid = true;
+                break;
+            }
+        }
+
+        if (!valid){
             throw new UnexpectedNumberOfParameters();
         }
     }
 
-    static public void expectedQuantityOfParameters(String args[], int firstQuantity, int secondQuantity) throws UnexpectedNumberOfParameters{
-        if (args.length != firstQuantity && args.length != secondQuantity){
-            throw new UnexpectedNumberOfParameters();
-        }
-    }
+    static public void parameterIsAvailable(String[] parameters) throws IllegalArgumentException{
+
+        for (String parameter : parameters){
+            parameter = parameter.toLowerCase();
+
+            if (parameter == null){
+                throw new IllegalArgumentException();
+            }
     
-
-    static public void parameterIsAvailable(String parameter) throws IllegalArgumentException{
-        parameter = parameter.toLowerCase();
-
-        if (parameter == null){
-            throw new IllegalArgumentException();
-        }
-
-        if (parameter.isEmpty()){
-            throw new IllegalArgumentException();
+            if (parameter.isEmpty()){
+                throw new IllegalArgumentException();
+            }
         }
     }
 

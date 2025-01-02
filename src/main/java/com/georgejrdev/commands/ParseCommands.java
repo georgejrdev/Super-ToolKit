@@ -25,13 +25,13 @@ public class ParseCommands implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
         
         try {
-            OptionsValidation.expectedQuantityOfParameters(args, 2, 3);
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{2,3});
             
             if (args.length == 3){
-                OptionsValidation.optionIsAvailable(args[0],args[1]);
+                OptionsValidation.optionIsAvailable(args[0], new String[]{args[1]});
             }
 
-            OptionsValidation.parameterIsAvailable(args[args.length - 1]);
+            OptionsValidation.parameterIsAvailable(new String[]{args[args.length - 1]});
         } 
 
         catch (UnexpectedNumberOfParameters e){

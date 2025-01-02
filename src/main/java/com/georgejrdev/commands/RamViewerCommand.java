@@ -24,7 +24,7 @@ public class RamViewerCommand implements Commands{
         logger.info("Executing command " + args[0] + ". All arguments: " + Arrays.toString(args));
 
         try {
-            OptionsValidation.expectedQuantityOfParameters(args, 1);   
+            OptionsValidation.expectedQuantityOfParameters(args, new int[]{1});   
         }
 
         catch (UnexpectedNumberOfParameters e) {
