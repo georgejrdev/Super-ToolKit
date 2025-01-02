@@ -5,13 +5,13 @@ import java.lang.management.ManagementFactory;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
+import static com.georgejrdev.DefaultValues.ANSI_CYAN;
+import static com.georgejrdev.DefaultValues.ANSI_GREEN;
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 
 public class RamViewerExecutor {
 
-    private static final String ANSI_RESET = "\u001B[0m";
-    private static final String ANSI_CYAN = "\u001B[36m";
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_GREEN = "\u001B[32m";
     private static boolean running = true;
     private static long biggerValue = 0;
     private static final Logger logger = AppLogger.getLogger();
