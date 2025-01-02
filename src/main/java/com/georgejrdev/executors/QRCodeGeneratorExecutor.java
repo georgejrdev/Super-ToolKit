@@ -15,6 +15,9 @@ import java.nio.file.Path;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
+
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class QRCodeGeneratorExecutor {
@@ -43,7 +46,7 @@ public class QRCodeGeneratorExecutor {
         }
 
         catch (WriterException | IOException e) {
-            System.out.println("Error generating QR code. You can see more details in the log file located at" + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Error generating QR code. You can see more details in the log file located at" + PROGRAM_PATH + ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);

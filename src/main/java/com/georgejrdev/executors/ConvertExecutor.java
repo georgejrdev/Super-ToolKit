@@ -9,6 +9,9 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 
 import com.georgejrdev.utils.helper.AppLogger;
+
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class ConvertExecutor {
@@ -30,7 +33,7 @@ public class ConvertExecutor {
         } 
         
         catch (IOException e) {
-            System.out.println("Error while trying to convert. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Error while trying to convert. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -57,7 +60,7 @@ public class ConvertExecutor {
         }
         
         catch (IOException | InterruptedException e) {
-            System.out.println("Error while trying to convert. Check if you have ffmpeg installed on your system. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Error while trying to convert. Check if you have ffmpeg installed on your system. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -84,7 +87,7 @@ public class ConvertExecutor {
         } 
         
         catch (IOException | InterruptedException e) {
-            System.out.println("Error while trying to convert. Check if you have ffmpeg installed on your system. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Error while trying to convert. Check if you have ffmpeg installed on your system. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
             
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);

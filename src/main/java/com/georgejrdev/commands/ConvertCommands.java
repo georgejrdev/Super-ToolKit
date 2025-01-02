@@ -12,6 +12,9 @@ import com.georgejrdev.utils.exceptions.UnexpectedNumberOfParameters;
 import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.validations.OptionsValidation;
 import com.georgejrdev.utils.helper.AppLogger;
+
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class ConvertCommands implements Commands{
@@ -31,7 +34,7 @@ public class ConvertCommands implements Commands{
         }
 
         catch (UnexpectedNumberOfParameters e){
-            System.out.println("Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH + ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -44,7 +47,7 @@ public class ConvertCommands implements Commands{
         }
 
         catch (InvalidOptionCommand e){
-            System.out.println("Invalid option " + args[1] + " on command " + args[0] + ". You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Invalid option " + args[1] + " on command " + args[0] + ". You can see more details in the log file located at " + PROGRAM_PATH + ANSI_RESET);
             
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -57,7 +60,7 @@ public class ConvertCommands implements Commands{
         }
 
         catch (IllegalArgumentException e){
-            System.out.println("Arguments " + args[2] + " or " + args[3] + " are not valid. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Arguments " + args[2] + " or " + args[3] + " are not valid. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);

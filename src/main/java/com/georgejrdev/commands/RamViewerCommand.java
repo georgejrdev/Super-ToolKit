@@ -1,5 +1,7 @@
 package com.georgejrdev.commands;
 
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 import java.io.PrintWriter;
@@ -28,7 +30,7 @@ public class RamViewerCommand implements Commands{
         }
 
         catch (UnexpectedNumberOfParameters e) {
-            System.out.println("Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);

@@ -46,9 +46,9 @@ public class ToDoExecutor {
             String itemContent = (String) item.get("content");
             
             if (itemState){
-                System.out.printf("ID: %d [ ] - %s%n",itemId,itemContent);
+                System.out.printf(ANSI_YELLOW+"ID: %d [ ] -"+ ANSI_RESET +" %s%n",itemId,itemContent);
             } else {
-                System.out.printf("ID: %d [x] - %s%n",itemId,itemContent);
+                System.out.printf(ANSI_BRIGHT_RED+"ID: %d ["+ANSI_RESET+ANSI_RED+"x"+ANSI_RESET+ANSI_BRIGHT_RED+"] -"+ ANSI_RESET +" %s%n",itemId,itemContent);
             }
         }
     }

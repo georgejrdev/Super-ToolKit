@@ -17,4 +17,9 @@ public class DefaultValues {
     public static final String ANSI_BLUE = "\u001B[34m";
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_BRIGHT_RED = "\u001B[91m";
+    public static final String ANSI_BRIGHT_GREEN = "\u001B[92m";
+    public static final String ANSI_BRIGHT_BLUE = "\u001B[94m";
+    public static final String ANSI_BRIGHT_PURPLE = "\u001B[95m";
+    public static final String ANSI_BRIGHT_CYAN = "\u001B[96m";
 }

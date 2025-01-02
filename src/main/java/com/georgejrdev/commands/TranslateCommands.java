@@ -12,6 +12,9 @@ import com.georgejrdev.utils.helper.Helper;
 import com.georgejrdev.utils.ia.GeminiRequest;
 import com.georgejrdev.utils.validations.OptionsValidation;
 import com.georgejrdev.utils.helper.AppLogger;
+
+import static com.georgejrdev.DefaultValues.ANSI_RED;
+import static com.georgejrdev.DefaultValues.ANSI_RESET;
 import static com.georgejrdev.DefaultValues.PROGRAM_PATH;
 
 public class TranslateCommands implements Commands{
@@ -30,7 +33,7 @@ public class TranslateCommands implements Commands{
         } 
         
         catch (UnexpectedNumberOfParameters e){
-            System.out.println("Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Unexpected number of parameters. You can see more details in the log file located at " + PROGRAM_PATH+ ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
@@ -43,7 +46,7 @@ public class TranslateCommands implements Commands{
         }
 
         catch (IllegalArgumentException e){
-            System.out.println("Arguments " + args[1] + " or " + args[2] + " are not valid. You can see more details in the log file located at " + PROGRAM_PATH);
+            System.out.println(ANSI_RED+"Arguments " + args[1] + " or " + args[2] + " are not valid. You can see more details in the log file located at " + PROGRAM_PATH + ANSI_RESET);
 
             StringWriter sw = new StringWriter();
             PrintWriter pw = new PrintWriter(sw);
