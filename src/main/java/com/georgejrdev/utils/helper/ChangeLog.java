@@ -10,6 +10,7 @@ public class ChangeLog {
         add("Version: 4.2.0 - 01/01/2025 \n\n Features: \n -Add command 'qrcode' to generate a QRCode. \n\n Bug Fixes: \n -No bugs fixed.");
         add("Version: 4.3.0 - 01/01/2025 \n\n Features: \n -Add command ramviewer. \n -Add command changelog. \n\n Bug Fixes: \n -Bug that incorrectly saved information about the arguments passed to the program in the log file at the time of the error. \n -Spelling error in the description of the 'qrcode' command in the README.");
         add("Version: 4.3.1 - 01/01/2025 \n\n Features: \n -No new features (only bug fixes). \n\n Bug Fixes: \n -Duplicate dot when passing new file format (like .mov) in convert command. \n -Incorrect date in the change log of version 4.3.0.");
+        add("Version: 4.3.2 - 02/01/2025 \n\n Features: \n -Add color on ram viewer. \n\n Bug Fixes: \n -No bugs fixed.");
     }};
 
     public static void showChangeLog(boolean all){

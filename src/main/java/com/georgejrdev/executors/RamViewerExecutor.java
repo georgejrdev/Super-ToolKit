@@ -8,6 +8,10 @@ import com.georgejrdev.utils.helper.AppLogger;
 
 public class RamViewerExecutor {
 
+    private static final String ANSI_RESET = "\u001B[0m";
+    private static final String ANSI_CYAN = "\u001B[36m";
+    private static final String ANSI_RED = "\u001B[31m";
+    private static final String ANSI_GREEN = "\u001B[32m";
     private static long biggerValue = 0;
     private static final Logger logger = AppLogger.getLogger();
 
@@ -19,7 +23,7 @@ public class RamViewerExecutor {
 
         Runtime.getRuntime().addShutdownHook(new Thread(()->{
             System.out.println("\n-----------------------------------------------------------");
-            System.out.println("Maximum used memory: " + biggerValue + " MB");
+            System.out.println("Maximum used memory: "+ ANSI_RED + biggerValue + " MB" + ANSI_RESET);
             System.out.println("-----------------------------------------------------------");
         }));
 
@@ -45,7 +49,11 @@ public class RamViewerExecutor {
             biggerValue = usedMemorySize;
         }
 
-        System.out.println(" | Total memory: " + totalMemorySize + " MB | Free memory: " + freeMemorySize + " MB | Used memory: " + usedMemorySize + " MB");
+        System.out.println(
+        " | Total memory: " + ANSI_CYAN + totalMemorySize + " MB" + ANSI_RESET +
+        " | Free memory: " + ANSI_GREEN + freeMemorySize + " MB" + ANSI_RESET +
+        " | Used memory: " + ANSI_RED + usedMemorySize + " MB" + ANSI_RESET
+        );
     }
 
     private static long bytesToMBRounded(long bytes) {
