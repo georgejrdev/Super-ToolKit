@@ -12,6 +12,7 @@ public class RamViewerExecutor {
     private static final String ANSI_CYAN = "\u001B[36m";
     private static final String ANSI_RED = "\u001B[31m";
     private static final String ANSI_GREEN = "\u001B[32m";
+    private static boolean running = true;
     private static long biggerValue = 0;
     private static final Logger logger = AppLogger.getLogger();
 
@@ -22,12 +23,13 @@ public class RamViewerExecutor {
         System.out.println("\nPress 'Ctrl+C' to stop\n");
 
         Runtime.getRuntime().addShutdownHook(new Thread(()->{
+            running = false;
             System.out.println("\n-----------------------------------------------------------");
             System.out.println("Maximum used memory: "+ ANSI_RED + biggerValue + " MB" + ANSI_RESET);
             System.out.println("-----------------------------------------------------------");
         }));
 
-        while (true) {
+        while (running) {
             print();
             try {
                 Thread.sleep(1000);
