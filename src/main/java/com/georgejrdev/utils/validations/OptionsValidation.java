@@ -29,10 +29,17 @@ public class OptionsValidation {
         add("audio");
     }};
 
+    static private List<String> KEY_OPTIONS = new ArrayList<String>(){{
+        add("add");
+        add("remove");
+        add("list");
+    }};
+
     static private Map<String, List<String>> AVAILABLE_OPTIONS = new LinkedHashMap<String, List<String>>(){{
         put("todo", TODO_OPTIONS);
         put("parse", PARSE_OPTIONS);
         put("convert", CONVERT_OPTIONS);
+        put("key", KEY_OPTIONS);
     }};
 
     static public void optionIsAvailable(String command, String[] options) throws InvalidOptionCommand{

@@ -38,7 +38,7 @@ public class Helper {
     static private List<String> TODO_COMMANDS = new ArrayList<String>(){{
         add("stk" + ANSI_RED + " todo add" + ANSI_RESET + " [text] : add ToDo");
         add("stk" + ANSI_RED + " todo remove" + ANSI_RESET + " [id] : remove ToDo");
-        add("stk" + ANSI_RED + " todo list" + ANSI_RESET + " : list all ToDo's");
+        add("stk" + ANSI_RED + " todo list" + ANSI_RESET + " : show all ToDo's");
         add("stk" + ANSI_RED + " todo check" + ANSI_RESET + " [id] : check ToDo");
         add("stk" + ANSI_RED + " todo uncheck" + ANSI_RESET + " [id] : uncheck ToDo");
     }};
@@ -69,6 +69,13 @@ public class Helper {
     static private List<String> RAM_VIEWER_COMMANDS = new ArrayList<String>(){{
         add("stk" + ANSI_BRIGHT_BLUE + " ramviewer" + ANSI_RESET + " : Start RAMViewer");
     }};
+
+    static private List<String> KEY_COMMANDS = new ArrayList<String>(){{
+        add("stk" + ANSI_RED + " key add" + ANSI_RESET + " [name] [value] : add key");
+        add("stk" + ANSI_RED + " key remove" + ANSI_RESET + " [name] : remove key");
+        add("stk" + ANSI_RED + " key list" + ANSI_RESET + " : show all keys");
+        add("stk" + ANSI_RED + " key list" + ANSI_RESET + " [name] : show a specific key");
+    }};
     
     static private Map<String, List<String>> COMMANDS_SYNTAX = new LinkedHashMap<String,List<String>>(){{
         put("help", HELP_COMMANDS);
@@ -84,6 +91,7 @@ public class Helper {
         put("chat", CHAT_COMMANDS);
         put("qrcode", QRCODE_COMMANDS);
         put("ramviewer", RAM_VIEWER_COMMANDS);
+        put("key", KEY_COMMANDS);
     }};
 
     static public void listCommands(){

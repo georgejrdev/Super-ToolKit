@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 import com.georgejrdev.commands.ChatCommand;
 import com.georgejrdev.commands.ConvertCommands;
 import com.georgejrdev.commands.GetCommitMessageCommand;
+import com.georgejrdev.commands.KeyCommand;
 import com.georgejrdev.commands.ParseCommands;
 import com.georgejrdev.commands.QRCodeGeneratorCommand;
 import com.georgejrdev.commands.RamViewerCommand;
@@ -112,6 +113,11 @@ public class SuperToolKit {
             case "ramviewer":
                 RamViewerCommand ramViewerCommand = new RamViewerCommand();
                 ramViewerCommand.run(args);
+                break;
+
+            case "key":
+                KeyCommand keyCommand = new KeyCommand();
+                keyCommand.run(args);
                 break;
 
             default:
