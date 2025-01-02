@@ -48,6 +48,12 @@ public class ChangeLog {
             "\n -Add command 'key' to manipulate (add, remove, list) secret keys." + 
             "\n\n" + ANSI_RED + "Bug Fixes:" + ANSI_RESET + 
             "\n -No bugs fixed.");
+
+        add(ANSI_CYAN + "Version: 4.4.1 - 02/01/2025" + ANSI_RESET +
+            "\n\n" + ANSI_GREEN + "Features:" + ANSI_RESET + 
+            "\n -No new features (only bug fixes)." + 
+            "\n\n" + ANSI_RED + "Bug Fixes:" + ANSI_RESET + 
+            "\n -Add documentation for the 'key' command.");
     }};
     
     public static void showChangeLog(boolean all){

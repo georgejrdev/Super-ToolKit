@@ -94,6 +94,29 @@
 
 ---
 
+#### Key 
+
+- **Add Key:**  
+    - **Syntax:** `stk key add [name] [value]`  
+    - **Example:** `stk key add "api_key" "key_value"`  
+    - **Explanation:** Add a new key.  
+
+- **Remove Key:**  
+    - **Syntax:** `stk key remove [name]`  
+    - **Example:** `stk key remove "api_key"`  
+    - **Explanation:** Remove a key.  
+
+- **List All Keys:**  
+    - **Syntax:** `stk key list`  
+    - **Example:** `stk key list`  
+    - **Explanation:** Display all Keys.
+
+- **List Specific Keys:**  
+    - **Syntax:** `stk key list`  
+    - **Example:** `stk key list`  
+    - **Explanation:** Display a specific key.
+---
+
 #### Utilities  
 
 - **Help:**  
