@@ -14,7 +14,7 @@ public class TestManipulateJsonFile {
     
     @Before
     public void setUp(){
-        mJsonFile = new ManipulateJsonFile("./test.json");
+        mJsonFile = new ManipulateJsonFile("./test.json", false);
         mJsonFile.createNewJsonFile();
     }
 
@@ -25,12 +25,12 @@ public class TestManipulateJsonFile {
 
     @Test
     public void testAddItemInJsonFile(){
-        mJsonFile.addItemInJsonFile("Hey");
+        mJsonFile.addItemInJsonFile(null, "Hey");
     }
 
     @Test
     public void testUpdateItemInJsonFile(){
-        mJsonFile.addItemInJsonFile("Hi");
+        mJsonFile.addItemInJsonFile(null, "Hi");
         
         List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
         int id = ((content.size()) -1);
@@ -40,8 +40,8 @@ public class TestManipulateJsonFile {
 
     @Test
     public void testGetContentJsonFile(){
-        mJsonFile.addItemInJsonFile("Hello");
-        mJsonFile.addItemInJsonFile("Hola");
+        mJsonFile.addItemInJsonFile(null, "Hello");
+        mJsonFile.addItemInJsonFile(null, "Hola");
 
         List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
 
@@ -51,8 +51,8 @@ public class TestManipulateJsonFile {
 
     @Test
     public void testDeleteItemInJsonFile(){
-        mJsonFile.addItemInJsonFile("Hello");
-        mJsonFile.addItemInJsonFile("Hola");
+        mJsonFile.addItemInJsonFile(null, "Hello");
+        mJsonFile.addItemInJsonFile(null, "Hola");
 
         List<Map<String,Object>> content = mJsonFile.getContentJsonFile();
         int id = ((content.size()) -1);

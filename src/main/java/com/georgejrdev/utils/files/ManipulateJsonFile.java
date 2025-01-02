@@ -23,11 +23,13 @@ public class ManipulateJsonFile {
     private boolean fileExist;
     private List<Map<String, Object>> content;
     private static final Logger logger = AppLogger.getLogger();
+    private boolean isIdString;
 
-    public ManipulateJsonFile(String path) {
+    public ManipulateJsonFile(String path, boolean isIdString) {
         this.path = path;
         this.fileExist = false;
         this.content = new ArrayList<>();
+        this.isIdString = isIdString;
     }
     
     public void createNewJsonFile() {
@@ -52,24 +54,26 @@ public class ManipulateJsonFile {
         }
     }
 
-    public void addItemInJsonFile(String content) {
+    public void addItemInJsonFile(Object id, String content) {
         if (!this.fileExist) {
             createNewJsonFile();
         }
         
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
-        int maxId = 0;
-        for (Map<String, Object> item : currentContent) { 
-            int currentId = (int) item.get("id"); 
-
-            if (currentId > maxId) {
-                maxId = currentId; 
-            } 
-        } 
+        if (!isIdString) {
+            int maxId = 0;
+            for (Map<String, Object> item : currentContent) { 
+                int currentId = (int) item.get("id"); 
+                if (currentId > maxId) {
+                    maxId = currentId; 
+                } 
+            }
+            id = maxId + 1;
+        }
 
         Map<String, Object> newItem = new HashMap<>();
-        newItem.put("id", maxId + 1);
+        newItem.put("id", id);
         newItem.put("content", content);
         newItem.put("state", true);
 
@@ -79,21 +83,21 @@ public class ManipulateJsonFile {
 
         try (FileWriter writer = new FileWriter(this.path)) {
             gson.toJson(currentContent, writer);
-            logger.info("Item "+content+" added to json file at path: " + this.path);
+            logger.info("Item " + content + " added to json file at path: " + this.path);
 
         } catch (IOException e) {
             e.printStackTrace();
-            logger.severe("Error adding" +content+ "to json file at path: " + this.path + " - " + e.getMessage());
+            logger.severe("Error adding " + content + " to json file at path: " + this.path + " - " + e.getMessage());
         }
     }
 
-    public void updateItemInJsonFile(int id, boolean newStatus) {
+    public void updateItemInJsonFile(Object id, boolean newStatus) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
         boolean found = false;
 
         for (Map<String, Object> item : currentContent) {
-            if (item.get("id") instanceof Integer && (Integer) item.get("id") == id) {
+            if (item.get("id").equals(id)) {
                 item.put("state", newStatus);
                 found = true;
                 break;
@@ -109,13 +113,13 @@ public class ManipulateJsonFile {
         }
     }
 
-    public void deleteItemInJsonFile(int id) {
+    public void deleteItemInJsonFile(Object id) {
         List<Map<String, Object>> currentContent = getContentJsonFile();
 
         boolean found = false;
 
         for (Map<String, Object> item : currentContent) {
-            if (item.get("id") instanceof Integer && (Integer) item.get("id") == id) {
+            if (item.get("id").equals(id)) {
                 currentContent.remove(item);
                 found = true;
                 break;
@@ -141,7 +145,7 @@ public class ManipulateJsonFile {
             if (this.content != null) {
                 for (Map<String, Object> item : this.content) {
                     Object idObj = item.get("id");
-                    
+
                     if (idObj instanceof Double) {
                         item.put("id", ((Double) idObj).intValue());
                     }

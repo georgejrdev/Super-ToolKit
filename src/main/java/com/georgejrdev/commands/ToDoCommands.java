@@ -62,18 +62,34 @@ public class ToDoCommands implements Commands{
 
         switch (OPTION){
             case "add":
+                if (PARAMETER == null){
+                    Helper.listCommands(args[0]);;
+                    return;
+                }
                 toDoExecutor.createNewTask(PARAMETER);
                 break;
             
             case "remove":
+                if (PARAMETER == null){
+                    Helper.listCommands(args[0]);;
+                    return;
+                }
                 toDoExecutor.deleteTask(Integer.parseInt(PARAMETER));
                 break;
 
             case "check":
+                if (PARAMETER == null){
+                    Helper.listCommands(args[0]);;
+                    return;
+                }
                 toDoExecutor.checkTask(Integer.parseInt(PARAMETER), false);
                 break;
 
             case "uncheck":
+                if (PARAMETER == null){
+                    Helper.listCommands(args[0]);;
+                    return;
+                }
                 toDoExecutor.checkTask(Integer.parseInt(PARAMETER), true);
                 break;
             

@@ -21,11 +21,11 @@ public class ToDoExecutor {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        this.manipulateFile = new ManipulateJsonFile(DIR_SAVE+File.separator+"ToDoSave.json");
+        this.manipulateFile = new ManipulateJsonFile(DIR_SAVE+File.separator+"ToDoSave.json", false);
     }
 
     public void createNewTask(String content){
-        this.manipulateFile.addItemInJsonFile(content);
+        this.manipulateFile.addItemInJsonFile(null, content);
         showTasks();
         logger.info("New task created - Content: "+content);
     }
@@ -38,7 +38,7 @@ public class ToDoExecutor {
 
     public void showTasks(){
         this.manipulateFile.createNewJsonFile();
-        
+            
         List<Map<String,Object>> content = orderTasks(this.manipulateFile.getContentJsonFile());
 
         for(Map<String,Object> item : content) {
